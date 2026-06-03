@@ -1353,30 +1353,73 @@
         </section>
         <!-- ========== SLIDE 24 END ========== -->
 
-        <!-- ========== SLIDE 25 START ========== (구 슬라이드 18: 공급망 성과 - 대응성·회복력) -->
-        <section class="slide" id="slide-25">
-            <div class="content-wrapper">
-                <h2 class="section-title">공급망 성과 ② — 대응성·회복력</h2>
-                <div class="asymmetric-layout-37">
-                    <div class="text-pane">
-                        <h3>균형 잡힌 분산 구조</h3>
-                        <ul class="compact-list">
-                            <li><strong>납기·대응성:</strong> 지역화 + 멀티허브 운영 → 의사결정 속도 향상</li>
-                            <li><strong>회복력:</strong> 사업·시장·지역의 균형 잡힌 분산 구조 (balanced exposure)</li>
-                            <li><strong>Vantage 사례:</strong> 데이터센터 고객 용량 사전 예약으로 예측 가능한 납품</li>
-                            <li><strong>NSS 63:</strong> 사상 최고 고객 만족도</li>
-                            <li><strong>리콜 24건 → 3건:</strong> 2022년 대비 품질 안정성 8배↑</li>
-                        </ul>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="chart-performance"></canvas>
-                    </div>
+<!-- ========== SLIDE 25 START ========== 공급망 성과 - 대응성·회복력 -->
+<section class="slide" id="slide-25">
+    <div class="content-wrapper">
+        <h2 class="section-title">공급망 성과 ② — 대응성·회복력</h2>
+        <div class="asymmetric-layout-37">
+
+            <!-- 좌측: 텍스트 -->
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label">Responsiveness &amp; Resilience</div>
+                <h3 style="margin-top: 6px;">균형 잡힌 분산 구조</h3>
+                <ul class="compact-list">
+                    <li><strong>납기·대응성:</strong> 지역화 + 멀티허브 운영 → 의사결정 속도 향상</li>
+                    <li><strong>회복력:</strong> 사업·시장·지역의 균형 잡힌 분산 (balanced exposure)</li>
+                    <li><strong>Vantage 사례:</strong> 데이터센터 고객 용량 사전 예약으로 예측 가능한 납품</li>
+                    <li><strong>NSS 63:</strong> 사상 최고 고객 만족도</li>
+                    <li><strong>리콜 24건 → 3건:</strong> 2022년 대비 품질 안정성 8배↑</li>
+                </ul>
+
+                <div class="grid-card" style="padding: 16px; margin-top: 14px; border-left: 5px solid var(--accent-gold);">
+                    <h3 style="font-size: 14px; color: var(--accent-gold); margin-bottom: 6px;">교재 10장 매핑</h3>
+                    <p style="font-size: 13px; color: var(--text-soft); line-height: 1.55;">멀티허브 = <strong>Redundancy Capacity</strong> · 컨트롤타워 = <strong>Sensing &amp; Responding</strong> · 9년+ 협력사 네트워크 = <strong>Adaptive Community</strong></p>
                 </div>
             </div>
-            <div class="slide-source">출처: Schneider Electric (2025) Integrated Report / Gartner (2025)</div>
-            <div class="slide-counter">25 / 31</div>
-        </section>
-        <!-- ========== SLIDE 25 END ========== -->
+
+            <!-- 우측: 차트 + 보조 카드 3종 -->
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+
+                <!-- 상단: 핵심 지표 3종 (한 줄) -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+                    <div style="text-align: center; padding: 14px 8px; background: rgba(61,205,88,0.08); border: 1px solid rgba(61,205,88,0.3); border-radius: 10px;">
+                        <div style="font-size: 28px; font-weight: 800; color: var(--emerald); line-height: 1;">NSS 63</div>
+                        <div style="font-size: 11px; color: var(--text-soft); margin-top: 6px; line-height: 1.4;">고객 만족도<br><span style="opacity:0.7;">사상 최고</span></div>
+                    </div>
+                    <div style="text-align: center; padding: 14px 8px; background: rgba(0,170,255,0.08); border: 1px solid rgba(0,170,255,0.3); border-radius: 10px;">
+                        <div style="font-size: 28px; font-weight: 800; color: var(--accent-blue); line-height: 1;">24→3</div>
+                        <div style="font-size: 11px; color: var(--text-soft); margin-top: 6px; line-height: 1.4;">제품 리콜 건수<br><span style="opacity:0.7;">2022 → 2025</span></div>
+                    </div>
+                    <div style="text-align: center; padding: 14px 8px; background: rgba(255,184,0,0.08); border: 1px solid rgba(255,184,0,0.3); border-radius: 10px;">
+                        <div style="font-size: 28px; font-weight: 800; color: var(--accent-gold); line-height: 1;">8배 ↑</div>
+                        <div style="font-size: 11px; color: var(--text-soft); margin-top: 6px; line-height: 1.4;">품질 안정성<br><span style="opacity:0.7;">전년 대비</span></div>
+                    </div>
+                </div>
+
+                <!-- 중앙: 레이더 차트 -->
+                <div class="chart-container" style="min-height: 280px; max-height: 320px;">
+                    <canvas id="chart-performance"></canvas>
+                </div>
+
+                <!-- 하단: Vantage 사례 카드 -->
+                <div class="grid-card highlight-card" style="padding: 16px;">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <div style="background: var(--emerald); color: var(--navy-900); min-width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 800; box-shadow: 0 0 12px var(--emerald);">V</div>
+                        <div>
+                            <h3 style="font-size: 14px; color: var(--emerald); margin-bottom: 4px;">Vantage Data Centers 사례</h3>
+                            <p style="font-size: 13px; color: var(--text-soft); line-height: 1.55;">데이터센터 하이퍼스케일러가 <strong>전력·냉각 용량을 사전 예약</strong>하면 슈나이더가 그 시점에 맞춰 납품 — 수요 불확실성 자체를 계약 단계에서 제거하는 <strong>대응성의 새 정의</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Schneider Electric (2025) Integrated Report / Gartner (2025) / 교재 10장 Risk Management</div>
+    <div class="slide-counter">25 / 31</div>
+</section>
+<!-- ========== SLIDE 25 END ========== -->
+
 
         <!-- ========== SLIDE 26 START ========== [NEW] 협력사 ESG -->
         <section class="slide" id="slide-26">
