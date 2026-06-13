@@ -1,0 +1,1650 @@
+<!DOCTYPE html>
+<html lang="ko" class=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슈나이더 일렉트릭 공급망 분석 — Part 1/3</title>
+    <meta name="description" content="가트너 Supply Chain Top 25 3년 연속 1위, 슈나이더 일렉트릭의 공급망 운영 분석 프레젠테이션 (1-10)">
+
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Outfit:wght@400;600;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" as="style" crossorigin="" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+</head>
+<body class="">
+    <canvas id="three-canvas" width="1920" height="891" style="width: 1536px; height: 713px;"></canvas>
+    <div id="aura" class="aura-follower" style="transform: translate(calc(-50% + 211.001px), calc(-50% + 19.0003px));"></div>
+
+    <header class="glass-topbar">
+        <div class="logo"><span class="logo-icon">SE</span> Schneider Electric<span class="logo-dot">.</span></div>
+        <div class="deck-title">TIM509 운영관리 · Group Report</div>
+    </header>
+
+    <main class="slide-container">
+
+        <!-- ========== SLIDE 1 START ========== -->
+        <section class="slide" id="slide-1">
+            <div class="content-wrapper centered">
+                <h1 class="main-title" style="font-size: 80px;">세계에서 가장 앞선 공급망<br>— 슈나이더 일렉트릭 분석</h1>
+                <p class="subtitle" style="font-size: 30px;">3년 연속 가트너 Supply Chain Top 25 세계 1위, 그 운영의 안쪽</p>
+                <div class="grid-card team-info">
+                    <div class="info-row">
+                        <span class="label">Course</span>
+                        <span class="value">운영관리 (이창훈 교수님)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Team</span>
+                        <span class="value">이강원 · 이현우 · 김진혁</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Subject</span>
+                        <span class="value">Schneider Electric</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-counter">1 / 30</div>
+        </section>
+        <!-- ========== SLIDE 1 END ========== -->
+
+<!-- ========== SLIDE 2 START ========== -->
+<section class="slide" id="slide-2">
+    <div class="content-wrapper">
+        <h2 class="section-title">목차 (Table of Contents)</h2>
+
+        <!-- 3단계 그룹 컨테이너 -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; margin-top: 12px;">
+
+            <!-- 그룹 1: 도입부 (Why Schneider?) -->
+            <div class="grid-card" style="padding: 24px; display: flex; flex-direction: column; border-left: 5px solid var(--emerald);">
+                <div class="section-label" style="margin-bottom: 14px; align-self: flex-start;">PART I · 도입부</div>
+                <h3 style="font-size: 18px; color: var(--emerald); margin-bottom: 16px;">왜 슈나이더인가?</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; flex: 1;">
+                    <div style="display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="background: var(--emerald); color: var(--navy-900); width: 24px; height: 24px; min-width: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 12px; box-shadow: 0 0 8px var(--emerald); margin-top: 2px;"></div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); line-height: 1.4;">가트너 Top 25 1위 선정 사유</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">Slides 3–5</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="background: var(--emerald); color: var(--navy-900); width: 24px; height: 24px; min-width: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 12px; box-shadow: 0 0 8px var(--emerald); margin-top: 2px;"></div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); line-height: 1.4;">기업 소개와 시장 환경</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">Slides 6–9</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="background: var(--emerald); color: var(--navy-900); width: 24px; height: 24px; min-width: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 12px; box-shadow: 0 0 8px var(--emerald); margin-top: 2px;"></div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); line-height: 1.4;">공급망 규모</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">Slide 10</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 그룹 2: 본론 (How?) -->
+            <div class="grid-card" style="padding: 24px; display: flex; flex-direction: column; border-left: 5px solid var(--accent-blue); position: relative; overflow: hidden;">
+                <!-- 본론 강조 워터마크 -->
+                <div style="position: absolute; top: -20px; right: -20px; font-size: 120px; font-weight: 800; color: rgba(0,170,255,0.05); font-family: var(--font-heading); line-height: 1; pointer-events: none;">II</div>
+
+                <div class="section-label" style="margin-bottom: 14px; align-self: flex-start; background: var(--accent-blue-dim); color: var(--accent-blue); border-color: rgba(0,170,255,0.3);">PART II · 본론</div>
+                <h3 style="font-size: 18px; color: var(--accent-blue); margin-bottom: 16px; position: relative; z-index: 2;">어떻게 작동하는가?</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; flex: 1; position: relative; z-index: 2;">
+                    <div style="display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="background: var(--accent-blue); color: var(--navy-900); width: 24px; height: 24px; min-width: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 12px; box-shadow: 0 0 8px var(--accent-blue); margin-top: 2px;">4</div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); line-height: 1.4;">STP 사례 ①~⑧ </div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">공장 단위 깊이 분석 · Slides 11–19</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="background: var(--accent-blue); color: var(--navy-900); width: 24px; height: 24px; min-width: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 12px; box-shadow: 0 0 8px var(--accent-blue); margin-top: 2px;">5</div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); line-height: 1.4;">디지털 시스템과 기능 종합</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">Kinaxis · EcoStruxure · Slides 20–23</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="background: var(--accent-blue); color: var(--navy-900); width: 24px; height: 24px; min-width: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 12px; box-shadow: 0 0 8px var(--accent-blue); margin-top: 2px;">6</div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); line-height: 1.4;">공급망 성과</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">효율·회복력·ESG · Slides 24–27</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 그룹 3: 마무리 (So What?) -->
+            <div class="grid-card" style="padding: 24px; display: flex; flex-direction: column; border-left: 5px solid var(--accent-gold);">
+                <div class="section-label" style="margin-bottom: 14px; align-self: flex-start; background: var(--accent-gold-dim); color: var(--accent-gold); border-color: rgba(255,184,0,0.3);">PART III · 마무리</div>
+                <h3 style="font-size: 18px; color: var(--accent-gold); margin-bottom: 16px;">우리는 무엇을 배우는가?</h3>
+
+                <div style="display: flex; flex-direction: column; gap: 10px; flex: 1;">
+                    <div style="display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="background: var(--accent-gold); color: var(--navy-900); width: 24px; height: 24px; min-width: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 12px; box-shadow: 0 0 8px var(--accent-gold); margin-top: 2px;">7</div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); line-height: 1.4;">교재 이론과의 연결</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">Slides 28–29</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="background: var(--accent-gold); color: var(--navy-900); width: 24px; height: 24px; min-width: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 12px; box-shadow: 0 0 8px var(--accent-gold); margin-top: 2px;">8</div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); line-height: 1.4;">핵심 시사점</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">5 Lessons Learned · Slide 30</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 10px; align-items: flex-start;">
+                        <div style="background: var(--accent-gold); color: var(--navy-900); width: 24px; height: 24px; min-width: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-weight: 800; font-size: 12px; box-shadow: 0 0 8px var(--accent-gold); margin-top: 2px;">9</div>
+                        <div>
+                            <div style="font-size: 14px; font-weight: 700; color: var(--text-main); line-height: 1.4;">결론 &amp; Q&amp;A</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">Slide 30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 하단 흐름 화살표 -->
+        <div style="display: flex; justify-content: center; align-items: center; gap: 16px; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--glass-border);">
+            <span style="font-size: 13px; color: var(--emerald); font-weight: 700; letter-spacing: 1px;">WHY</span>
+            <span style="color: var(--text-soft); font-size: 18px;">→</span>
+            <span style="font-size: 13px; color: var(--accent-blue); font-weight: 700; letter-spacing: 1px;">HOW</span>
+            <span style="color: var(--text-soft); font-size: 18px;">→</span>
+            <span style="font-size: 13px; color: var(--accent-gold); font-weight: 700; letter-spacing: 1px;">SO WHAT</span>
+        </div>
+    </div>
+    <div class="slide-counter">2 / 30</div>
+</section>
+<!-- ========== SLIDE 2 END ========== -->
+
+
+  <!-- ========== SLIDE 3 START ========== -->
+<section class="slide" id="slide-3">
+    <div class="content-wrapper">
+        <h2 class="section-title">가트너 Top 25 1위 선정 사유</h2>
+        <div class="split-layout">
+            <div class="text-pane">
+                <h3>세계 최대 기업들의 경쟁</h3>
+                <p>가트너의 Supply Chain Top 25는 2004년 시작, 2025년으로 21회째. Fortune Global 500과 Forbes Global 2000에서 연매출 약 150억 달러 이상 기업 300여 개를 대상으로 평가합니다.</p>
+                <ul class="compact-list">
+                    <li><strong>평판 50%:</strong> 동료 기업 임원 투표 + 가트너 전문가 투표</li>
+                    <li><strong>실적 50%:</strong> ROPA, 매출 성장, 재고회전, ESG 성과</li>
+                    <li><strong>ESG 단독 20%:</strong> 환경·사회 성과 없이는 1위 불가</li>
+                </ul>
+            </div>
+
+            <!-- 오른쪽 박스 리디자인 -->
+            <div style="display: flex; flex-direction: column; gap: 18px; justify-content: center;">
+
+                <!-- 상단: 핵심 메시지 카드 -->
+                <div class="grid-card highlight-card" style="padding: 28px; position: relative; overflow: hidden;">
+                    <!-- 배경 워터마크 -->
+                    <div style="position: absolute; top: -30px; right: -10px; font-size: 140px; font-weight: 800; color: rgba(61, 205, 88, 0.07); font-family: var(--font-heading); line-height: 1; pointer-events: none;">#1</div>
+
+                    <div style="position: relative; z-index: 2;">
+                        <div class="section-label" style="margin-bottom: 14px;">왜 1위가 특별한가</div>
+                        <h3 style="color: var(--emerald); font-size: 26px; margin-bottom: 12px;">사실상 "현역 최고"</h3>
+                        <p style="font-size: 16px; line-height: 1.65;">Amazon·Apple·P&amp;G·Unilever처럼 10년 중 7년 이상 상위 5위에 든 기업은 <strong>'Masters'</strong> 명단으로 따로 분리됩니다. 따라서 슈나이더의 1위는 <strong style="color:var(--emerald);">활동 중인 기업 가운데 최고</strong>를 의미합니다.</p>
+                    </div>
+                </div>
+
+                <!-- 하단: 제조업 핸디캡 비교 카드 -->
+                <div class="grid-card" style="padding: 24px; border-left: 5px solid var(--accent-blue);">
+                    <div class="section-label" style="background: var(--accent-blue-dim); color: var(--accent-blue); border-color: rgba(0,170,255,0.3); margin-bottom: 14px;">제조업의 핸디캡</div>
+
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: stretch; margin-top: 4px;">
+                        <!-- 좌측: 제조 3사 -->
+                        <div style="text-align: center; padding: 16px 10px; background: rgba(61,205,88,0.08); border: 1px solid rgba(61,205,88,0.3); border-radius: 12px;">
+                            <div style="font-size: 36px; font-weight: 800; color: var(--emerald); line-height: 1; margin-bottom: 6px;">3</div>
+                            <div style="font-size: 11px; color: var(--text-soft); letter-spacing: 0.5px; margin-bottom: 8px;">무거운 제조업</div>
+                            <div style="font-size: 12px; color: var(--text-main); font-weight: 600; line-height: 1.4;">Schneider<br>Siemens<br>BMW</div>
+                        </div>
+
+                        <!-- 중앙: vs 화살표 -->
+                        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-soft);">
+                            <div style="font-family: var(--font-heading); font-size: 14px; font-weight: 700; letter-spacing: 1px;">VS</div>
+                        </div>
+
+                        <!-- 우측: 자산 경량 22사 -->
+                        <div style="text-align: center; padding: 16px 10px; background: rgba(0,170,255,0.06); border: 1px solid rgba(0,170,255,0.2); border-radius: 12px;">
+                            <div style="font-size: 36px; font-weight: 800; color: var(--accent-blue); line-height: 1; margin-bottom: 6px;">22</div>
+                            <div style="font-size: 11px; color: var(--text-soft); letter-spacing: 0.5px; margin-bottom: 8px;">자산 경량 기업</div>
+                            <div style="font-size: 12px; color: var(--text-main); font-weight: 600; line-height: 1.4;">NVIDIA · Cisco<br>AstraZeneca 등<br>IT·제약·소비재</div>
+                        </div>
+                    </div>
+
+                    <p style="font-size: 14px; color: var(--text-soft); line-height: 1.6; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--glass-border);">ROPA는 자산이 가벼울수록 유리. 약 <strong style="color:var(--emerald);">160개 공장</strong>을 짊어진 슈나이더가 IT 기업들을 제친 의미.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Gartner (2025) "Supply Chain Top 25 Rankings" · Schneider Electric Careers</div>
+    <div class="slide-counter">3 / 30</div>
+</section>
+<!-- ========== SLIDE 3 END ========== -->
+
+
+        <!-- ========== SLIDE 4 START ========== -->
+        <section class="slide" id="slide-4">
+            <div class="content-wrapper">
+                <h2 class="section-title">종합점수 산식과 평가 구조</h2>
+                <div class="asymmetric-layout-37">
+                    <div class="text-pane">
+                        <h3>2025년 종합점수 산식</h3>
+                        <div class="formula-box">
+                            <strong>종합점수</strong> = 동료 임원 투표(25%) + 가트너 전문가 투표(25%) + ROPA(5%) + ROPA 변화(10%) + 매출 성장(10%) + 재고회전(5%) + <strong>ESG(20%)</strong>
+                            <br><br>
+                            <span style="font-size: 14px; opacity: 0.7;">* ROPA = Return on Physical Assets, 물적자산수익률</span>
+                        </div>
+                        <p style="font-size: 17px;">가트너는 2025년 상위 기업의 공통점으로 <strong>AI 도입, 자동화, 자원 절약 운영</strong>을 꼽았습니다. 슈나이더에 대해서는 현장 직원이 직접 AI 활용처를 찾아 제안하는 문화를 높이 평가했습니다.</p>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-gartner" style="box-sizing: border-box;" width="300"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-source">출처: Gartner (2025) "Supply Chain Top 25 Methodology"</div>
+            <div class="slide-counter">4 / 30</div>
+        </section>
+        <!-- ========== SLIDE 4 END ========== -->
+
+        <!-- ========== SLIDE 5 START ========== -->
+<!-- ========== SLIDE 5 START ========== -->
+<section class="slide" id="slide-5">
+    <div class="content-wrapper">
+        <h2 class="section-title">2025년 Top 3 — 3년 연속 1위</h2>
+        <div class="split-layout">
+            <div class="chart-container">
+                <canvas id="chart-top3" style="box-sizing: border-box;" width="300"></canvas>
+            </div>
+            <div class="text-pane">
+                <h3>효율·회복력·지속가능성의 동시 달성</h3>
+                <ul class="compact-list">
+                    <li><strong>슈나이더 일렉트릭 5.81:</strong> 2023년 첫 1위 이후 3년 연속 정상</li>
+                    <li><strong>NVIDIA 5.66:</strong> AI 칩 선두지만 슈나이더에 밀림</li>
+                    <li><strong>Cisco 5.08:</strong> 네트워크 장비 강자</li>
+                </ul>
+                <div class="grid-card highlight-card" style="padding: 28px; margin-top: 16px; flex: 1;">
+                    <div style="font-size: 60px; line-height: 0.8; color: var(--emerald); opacity: 0.4; font-family: var(--font-heading); font-weight: 800;">"</div>
+                    <p style="font-size: 14px; color: var(--text-soft); font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px;">보고서의 핵심 질문</p>
+                    <p style="font-size: 22px; color: var(--text-main); font-weight: 700; line-height: 1.5; margin-bottom: 18px;">
+                        어떻게 <span style="color: var(--emerald);">효율·회복력·지속가능성</span>을<br>
+                        동시에 해냈는가?
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px;">
+                        <div style="text-align: center; padding: 10px 6px; background: rgba(61,205,88,0.08); border: 1px solid rgba(61,205,88,0.25); border-radius: 8px;">
+                            <div style="font-size: 18px; font-weight: 800; color: var(--emerald);">효율</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">MAPE 4%</div>
+                        </div>
+                        <div style="text-align: center; padding: 10px 6px; background: rgba(0,170,255,0.08); border: 1px solid rgba(0,170,255,0.25); border-radius: 8px;">
+                            <div style="font-size: 18px; font-weight: 800; color: var(--accent-blue);">회복력</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">멀티허브</div>
+                        </div>
+                        <div style="text-align: center; padding: 10px 6px; background: rgba(255,184,0,0.08); border: 1px solid rgba(255,184,0,0.25); border-radius: 8px;">
+                            <div style="font-size: 18px; font-weight: 800; color: var(--accent-gold);">지속가능성</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 2px;">ESG -56%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Gartner (2025), Schneider Electric 보도자료</div>
+    <div class="slide-counter">5 / 30</div>
+</section>
+<!-- ========== SLIDE 5 END ========== -->
+        <!-- ========== SLIDE 5 END ========== -->
+
+ <!-- ========== SLIDE 6 START ========== 슈나이더 일렉트릭 기업 소개 -->
+<section class="slide" id="slide-6">
+    <div class="content-wrapper">
+        <h2 class="section-title">슈나이더 일렉트릭 — 기업 소개</h2>
+
+        <div class="split-layout" style="align-items: stretch;">
+
+            <!-- 좌측: 기업 개요 + 핵심 지표 -->
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label">Company Overview</div>
+                <h3 style="margin-top: 6px;">190년 역사의 에너지 기술 기업</h3>
+                <p style="margin-bottom: 18px;">1836년 프랑스 르 크뢰조(Le Creusot)에서 철강 주조소로 출발해, 오늘날 <strong>전기화·자동화·디지털화</strong>를 잇는 글로벌 에너지 기술 리더가 된 기업. 본사는 프랑스 Rueil-Malmaison, CAC 40 상장사입니다.</p>
+
+                <!-- 기본 정보 테이블 -->
+                <table class="compact-table" style="font-size: 15px;">
+                    <tbody>
+                        <tr>
+                            <td style="color: var(--emerald); font-weight: 700; width: 38%;">설립</td>
+                            <td><strong>1836년</strong> (Adolphe &amp; Joseph-Eugène Schneider 형제)</td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--emerald); font-weight: 700;">본사</td>
+                            <td>프랑스 Rueil-Malmaison</td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--emerald); font-weight: 700;">CEO</td>
+                            <td>Olivier Blum (2024.11~)</td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--emerald); font-weight: 700;">상장</td>
+                            <td>Euronext Paris · CAC 40</td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--emerald); font-weight: 700;">주요 브랜드</td>
+                            <td>Square D · APC · AVEVA · ETAP</td>
+                        </tr>
+                        <tr>
+                            <td style="color: var(--emerald); font-weight: 700;">사업 영역</td>
+                            <td>Energy Management · Industrial Automation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 우측: 연혁 타임라인 -->
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label" style="background: var(--accent-blue-dim); color: var(--accent-blue); border-color: rgba(0,170,255,0.3);">190-Year Journey</div>
+                <h3 style="margin-top: 6px;">철강에서 에너지 기술까지</h3>
+
+                <!-- 연혁 타임라인 -->
+                <div class="stepper-container" style="margin-top: 10px;">
+                    <div class="step-row" style="padding: 12px 18px;">
+                        <div class="step-num" style="background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue);">1836</div>
+                        <div class="step-text" style="font-size: 15px;">슈나이더 형제, 르 크뢰조 철강 주조소 인수 — 회사 창립</div>
+                    </div>
+                    <div class="step-row" style="padding: 12px 18px;">
+                        <div class="step-num" style="background: var(--accent-blue); box-shadow: 0 0 10px var(--accent-blue);">1891</div>
+                        <div class="step-text" style="font-size: 15px;">전기 사업 진출 — 에너지 기업으로의 전환 시작</div>
+                    </div>
+                    <div class="step-row" style="padding: 12px 18px;">
+                        <div class="step-num">1999</div>
+                        <div class="step-text" style="font-size: 15px;">사명을 <strong>Schneider Electric</strong>으로 변경, 정체성 확립</div>
+                    </div>
+                    <div class="step-row" style="padding: 12px 18px;">
+                        <div class="step-num">2007</div>
+                        <div class="step-text" style="font-size: 15px;"><strong>APC</strong> 인수($61억) — 데이터센터 전력·냉각 분야 진출</div>
+                    </div>
+                    <div class="step-row" style="padding: 12px 18px;">
+                        <div class="step-num">2023</div>
+                        <div class="step-text" style="font-size: 15px;"><strong>AVEVA 완전 인수 완료</strong> — 산업 소프트웨어 강화</div>
+                    </div>
+                    <div class="step-row" style="padding: 12px 18px; border-color: var(--emerald);">
+                        <div class="step-num">2025</div>
+                        <div class="step-text" style="font-size: 15px; color: var(--emerald);"><strong>매출 402억€ 돌파</strong> · 가트너 Top 25 3년 연속 1위</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+<!-- 하단: 글로벌 규모 지표 4종 -->
+<div class="scale-grid" style="margin-top: 24px; grid-template-columns: repeat(4, 1fr);">
+    <div class="stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 120px;">
+        <div class="stat-number">~16만</div>
+        <div class="stat-label">전 세계 임직원</div>
+    </div>
+    <div class="stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 120px;">
+        <div class="stat-number">100+</div>
+        <div class="stat-label">사업 국가</div>
+    </div>
+    <div class="stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 120px;">
+        <div class="stat-number">402억€</div>
+        <div class="stat-label">2025년 매출</div>
+    </div>
+    <div class="stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 120px;">
+        <div class="stat-number">100만+</div>
+        <div class="stat-label">글로벌 파트너</div>
+    </div>
+</div>
+
+    </div>
+    <div class="slide-source">출처: Schneider Electric Company Profile (se.com) · 2025 Full Year Results · Board press release (2024.11.4)</div>
+    <div class="slide-counter">6 / 30</div>
+</section>
+<!-- ========== SLIDE 6 END ========== -->
+
+
+
+
+        <!-- ========== SLIDE 7 START ========== (구 슬라이드 6: 기업과 시장 환경) -->
+        <section class="slide" id="slide-7">
+            <div class="content-wrapper">
+                <h2 class="section-title">기업과 시장 환경</h2>
+                <div class="split-layout">
+                    <div class="text-pane">
+                        <h3>에너지 기술 파트너</h3>
+                        <p>슈나이더는 단순 전기장비 제조사가 아닙니다. 데이터센터·공장·빌딩·전력망이 에너지를 더 똑똑하게 쓰도록 돕는 <strong>에너지 기술 파트너</strong>입니다.</p>
+                        <ul class="compact-list">
+                            <li><strong>New Energy Landscape:</strong> 전기차·재생에너지·스마트빌딩 확산</li>
+                            <li><strong>Digitalization &amp; AI:</strong> 데이터센터 수요 폭발 → 전력·냉각 수요 견인</li>
+                            <li><strong>Multi-Polar World:</strong> 지정학 갈등, 관세 → 지역화 공급 필요</li>
+                        </ul>
+                    </div>
+                    <div class="editorial-quote-container">
+                        <p class="editorial-quote">NVIDIA가 <span>AI의 두뇌</span>라면, 슈나이더는 그 두뇌가 <span>꺼지지 않도록</span> 전력과 열을 돌보는 쪽에 가깝습니다. 2030년 도달 가능 시장: <span>6,000억 유로+</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-source">출처: Schneider Electric (2025) Integrated Report</div>
+            <div class="slide-counter">7 / 30</div>
+        </section>
+        <!-- ========== SLIDE 7 END ========== -->
+
+        <!-- ========== SLIDE 8 START ========== (구 슬라이드 7: 전략 3갈래) -->
+        <section class="slide" id="slide-8">
+            <div class="content-wrapper">
+                <h2 class="section-title">조직 전략 — 세 갈래</h2>
+                <div class="grid-layout cols-3" style="align-items: stretch;">
+                    <div class="grid-card highlight-card">
+                        <div class="card-icon">🔬</div>
+                        <h3>Technology Leadership</h3>
+                        <p>EcoStruxure·AVEVA·ETAP에 AI·디지털 트윈을 더해 에너지와 산업 운영을 더 똑똑하게</p>
+                    </div>
+                    <div class="grid-card tech-highlight-card">
+                        <div class="card-icon">🤝</div>
+                        <h3>Customer Differentiation</h3>
+                        <p>고객 가까이에서 지역별 요구를 반영하고 파트너 생태계와 함께 빠르고 알맞은 해법</p>
+                    </div>
+                    <div class="grid-card gold-highlight-card">
+                        <div class="card-icon">⚙️</div>
+                        <h3>Operational Excellence</h3>
+                        <p>비용 경쟁력·생산성·확장성을 높여 성장 시장에서 안정적으로 수익</p>
+                    </div>
+                </div>
+                <div class="flow-container" style="margin-top: 24px;">
+                    <div class="flow-node">
+                        <span class="flow-title">매출 402억€</span>
+                        <span class="flow-desc">2025 실적</span>
+                    </div>
+                    <div class="flow-node">
+                        <span class="flow-title">유기 성장 8.9%</span>
+                        <span class="flow-desc">전년 대비</span>
+                    </div>
+                    <div class="flow-node">
+                        <span class="flow-title">EBITA 18.7%</span>
+                        <span class="flow-desc">조정 마진</span>
+                    </div>
+                    <div class="flow-node">
+                        <span class="flow-title">FCF 46억€</span>
+                        <span class="flow-desc">잉여현금</span>
+                    </div>
+                    <div class="flow-node">
+                        <span class="flow-title">탄소 −56%</span>
+                        <span class="flow-desc">상위 1,000 협력사</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-source">출처: Schneider Electric (2025) Integrated Report</div>
+            <div class="slide-counter">8 / 30</div>
+        </section>
+        <!-- ========== SLIDE 8 END ========== -->
+
+        <!-- ========== SLIDE 9 START ========== (구 슬라이드 8: 시장 비중) -->
+        <section class="slide" id="slide-9">
+            <div class="content-wrapper">
+                <h2 class="section-title">4대 전방시장과 2025 주문 비중</h2>
+                <div class="split-layout">
+                    <div class="text-pane">
+                        <h3>시장마다 다른 속도와 복잡성</h3>
+                        <p>네 시장이 모두 성장하지만 요구하는 바가 제각각입니다. 그래서 공급망을 하나의 표준 모델로 돌릴 수 없고, 시장마다 다른 속도와 복잡성을 감당해야 합니다.</p>
+                        <table class="compact-table">
+                            <thead>
+                                <tr><th>전방시장</th><th>핵심 동인</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Data Center</strong></td><td>AI, 전력·액체냉각</td></tr>
+                                <tr><td><strong>Buildings</strong></td><td>에너지 효율, 스마트빌딩</td></tr>
+                                <tr><td><strong>Industry</strong></td><td>리쇼어링, 공정 전기화</td></tr>
+                                <tr><td><strong>Infrastructure</strong></td><td>전력망 현대화, 재생에너지</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="chart-market" style="box-sizing: border-box;" width="300"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-source">출처: Schneider Electric (2025) Integrated Report</div>
+            <div class="slide-counter">9 / 30</div>
+        </section>
+        <!-- ========== SLIDE 9 END ========== -->
+
+        <!-- ========== SLIDE 10 START ========== (구 슬라이드 9: 공급망 규모) -->
+        <section class="slide" id="slide-10">
+            <div class="content-wrapper">
+                <h2 class="section-title">공급망 규모 — 매일 감당하는 복잡함</h2>
+                <div class="scale-grid">
+                    <div class="stat">
+                        <div class="stat-number">~160</div>
+                        <div class="stat-label">전 세계 생산 공장</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">~75</div>
+                        <div class="stat-label">물류센터</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5만+</div>
+                        <div class="stat-label">공급업체</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">~30만</div>
+                        <div class="stat-label">완제품 종류 (SKU)</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15만</div>
+                        <div class="stat-label">하루 처리 주문 라인</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">사업 국가</div>
+                    </div>
+                </div>
+                <div class="editorial-quote-container" style="margin-top: 24px;">
+                    <p class="editorial-quote">이 정도로 복잡한 네트워크를 매일 빈틈없이 돌리면서 세계 1위를 지킨다는 것 — <span>여기서 분석을 시작합니다.</span></p>
+                </div>
+            </div>
+            <div class="slide-source">출처: Schneider Electric (2025) Integrated Report</div>
+            <div class="slide-counter">10 / 30</div>
+        </section>
+        <!-- ========== SLIDE 10 END ========== -->
+<!-- ========== SLIDE 11 START ========== STP 사례 도입 -->
+<section class="slide" id="slide-11">
+    <div class="content-wrapper">
+        <h2 class="section-title">STP 사례 ① — 왜 이 공장인가</h2>
+        <div class="asymmetric-layout-37">
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label">Case Selection</div>
+                <h3 style="margin-top: 6px;">한 공장 안에 압축된 교재 이론</h3>
+                <p>멕시코 Tlaxcala의 STP 공장 — AC 차단기 조립 라인. <strong>예측·계획·재고·린·물류·품질</strong>이 하나의 사슬로 엮인 사례로, 교재의 거의 모든 핵심 이론이 실제 현장에서 어떻게 작동하는지를 보여줍니다.</p>
+
+                <table class="compact-table" style="font-size: 14px; margin-top: 12px;">
+                    <tbody>
+                        <tr>
+                            <td style="color:var(--emerald); font-weight:700; width:40%;">제품</td>
+                            <td>AC 차단기용 안전 캐비닛</td>
+                        </tr>
+                        <tr>
+                            <td style="color:var(--emerald); font-weight:700;">분석 기간</td>
+                            <td>2011.7 ~ 2014.9 (39개월)</td>
+                        </tr>
+                        <tr>
+                            <td style="color:var(--emerald); font-weight:700;">개선 시점</td>
+                            <td>2014.10 ~ 2016.9 (24개월)</td>
+                        </tr>
+                        <tr>
+                            <td style="color:var(--emerald); font-weight:700;">생산 비중</td>
+                            <td>MTS 85% / MTO 15%</td>
+                        </tr>
+                        <tr>
+                            <td style="color:var(--emerald); font-weight:700;">CV</td>
+                            <td>약 19% (저변동)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="grid-card highlight-card" style="padding: 14px; margin-top: 12px;">
+                    <p style="font-size: 13px; color: var(--text-soft); line-height: 1.55;">스탬핑 1대가 <strong>모든 라인 부품</strong>을 만드는 구조 → 병목 변동이 전체로 확산. 5장 Push-Pull 경계와 8장 EOQ 결정에 직결.</p>
+                </div>
+            </div>
+
+            <!-- 공정 다이어그램 영역 -->
+            <div class="grid-card" style="padding: 18px; display: flex; flex-direction: column; justify-content: center; background: rgba(6, 26, 16, 0.5);">
+                <h3 style="font-size: 16px; color: var(--emerald); margin-bottom: 12px; text-align: center;">실제 공정 흐름 (캐비닛 제조)</h3>
+                <img src="images/stp-process.png" alt="STP 공정 흐름 다이어그램" style="width: 100%; height: auto; max-height: 500px; object-fit: contain; border-radius: 12px; background: rgba(255,255,255,0.95); padding: 12px;">
+                <p style="font-size: 12px; color: var(--text-soft); text-align: center; margin-top: 10px; line-height: 1.5;">스탬핑 → F-S/SON 부품 → 도장·용접 → 캐비닛 조립 → 라인9 — <strong style="color:var(--emerald);">스탬핑 단일 병목</strong>이 모든 후속 공정의 리듬을 결정</p>
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Sanchez-Partida et al. (2018) Interfaces, 48(6), Figure 9 (공정 다이어그램 인용)</div>
+    <div class="slide-counter">11 / 30</div>
+</section>
+<!-- ========== SLIDE 11 END ========== -->
+
+
+ <!-- ========== SLIDE 12 START ========== 개선 전 진단 -->
+<section class="slide" id="slide-12">
+    <div class="content-wrapper">
+        <h2 class="section-title">STP 사례 ② — 개선 전 진단</h2>
+        <div class="split-layout">
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label">Root Cause</div>
+                <h3 style="margin-top: 6px;">Local Optimization의 함정</h3>
+                <p>미국 본사가 단순 선형회귀로 6개월 예측을 만들어 일방 전달, 공장은 <strong>수정 권한 없이</strong> BOM을 전개</p>
+
+                <div class="grid-card" style="padding: 20px; margin-top: 12px; border-left: 5px solid #FF5050;">
+                    <h3 style="font-size: 16px; color: #FF8080; margin-bottom: 10px;">4가지 핵심 문제</h3>
+                    <ul class="compact-list" style="gap: 8px;">
+                        <li style="font-size: 14px;"><strong>예측 고정:</strong> 본사 회귀, 공장 수정 불가, MAPE 22%</li>
+                        <li style="font-size: 14px;"><strong>안전재고 누적:</strong> BOM 단계마다 최대 100%</li>
+                        <li style="font-size: 14px;"><strong>스탬핑 병목:</strong> 모든 라인 부품의 변동 집중</li>
+                        <li style="font-size: 14px;"><strong>창고 5회 경유:</strong> 캐비닛 조립까지 불필요 정체</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-pane" style="justify-content: flex-start;">
+                <h3 style="margin-bottom: 12px;">3년 누적 손실 분해</h3>
+
+                <div class="scale-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 14px;">
+                    <div class="stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px;">
+                        <div class="stat-number" style="color:#FF8080; background: none; -webkit-text-fill-color: #FF8080;">12회</div>
+                        <div class="stat-label">라인 정지 (평균 4일)</div>
+                    </div>
+                    <div class="stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px;">
+                        <div class="stat-number" style="color:#FF8080; background: none; -webkit-text-fill-color: #FF8080;">67회</div>
+                        <div class="stat-label">지연 (평균 5시간)</div>
+                    </div>
+                    <div class="stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px;">
+                        <div class="stat-number" style="color:#FF8080; background: none; -webkit-text-fill-color: #FF8080;">$2,378</div>
+                        <div class="stat-label">비생산 시간당 손실</div>
+                    </div>
+                    <div class="stat" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 110px;">
+                        <div class="stat-number" style="color:#FF8080; background: none; -webkit-text-fill-color: #FF8080;">93%</div>
+                        <div class="stat-label">평균 SL (목표 98%)</div>
+                    </div>
+                </div>
+
+                <div class="massive-number-box" style="min-height: 140px; padding: 24px; border-color: #FF5050;">
+                    <div class="massive-number" style="font-size: 60px; background: linear-gradient(135deg, #FF5050 20%, #FFB800 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">~$3.54M</div>
+                    <div class="massive-label" style="font-size: 15px;">3년 누적 라인 정지·지연 손실</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Sanchez-Partida et al. (2018) p.566-568 </div>
+    <div class="slide-counter">12 / 30</div>
+</section>
+<!-- ========== SLIDE 12 END ========== -->
+
+<!-- ========== SLIDE 13A START ========== Phase 1 월 단위 예측 -->
+<section class="slide" id="slide-13">
+    <div class="content-wrapper">
+        <h2 class="section-title">STP 사례 ③-①: 월 단위 — 두 기법 모두 실패</h2>
+
+        <div class="split-layout" style="align-items: stretch;">
+            <!-- 좌측: Figure 5 (선형회귀 월) -->
+            <div class="grid-card" style="padding: 18px; display: flex; flex-direction: column;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="font-size: 17px; color: #FF8080;">선형회귀 · 월 단위</h3>
+                    <span style="background: rgba(255,80,80,0.15); color: #FF8080; padding: 4px 12px; border-radius: 12px; font-size: 13px; font-weight: 700; border: 1px solid rgba(255,80,80,0.4);">MAPE 22%</span>
+                </div>
+                <img src="images/stp-figure5.png" alt="Figure 5 - 월간 선형회귀 예측" style="width: 100%; height: auto; flex: 1; max-height: 360px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.95); padding: 10px;">
+                <p style="font-size: 12px; color: var(--text-soft); text-align: center; margin-top: 8px; font-style: italic;">Figure 5 — Sanchez-Partida et al. (2018) p.571</p>
+            </div>
+
+            <!-- 우측: Figure 6 (이중지수평활 월) -->
+            <div class="grid-card" style="padding: 18px; display: flex; flex-direction: column;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="font-size: 17px; color: #FF8855;">이중지수평활 · 월 단위</h3>
+                    <span style="background: rgba(255,136,85,0.15); color: #FF8855; padding: 4px 12px; border-radius: 12px; font-size: 13px; font-weight: 700; border: 1px solid rgba(255,136,85,0.4);">MAPE 23%</span>
+                </div>
+                <img src="images/stp-figure6.png" alt="Figure 6 - 월간 이중지수평활 예측" style="width: 100%; height: auto; flex: 1; max-height: 360px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.95); padding: 10px;">
+                <p style="font-size: 12px; color: var(--text-soft); text-align: center; margin-top: 8px; font-style: italic;">Figure 6 — Sanchez-Partida et al. (2018) p.571</p>
+            </div>
+        </div>
+
+        <!-- 하단: 해석 박스 -->
+        <div class="grid-card" style="padding: 18px; margin-top: 18px; border-left: 5px solid #FFB800;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center;">
+                <div>
+                    <h3 style="font-size: 16px; color: #FFB800; margin-bottom: 8px;">⚠ 핵심 관찰: "기법만 바꿔서는 안 된다"</h3>
+                    <p style="font-size: 14px; color: var(--text-soft); line-height: 1.6;">선형회귀(22%)에서 이중지수평활(23%)로 <strong>기법만 바꿨더니 오히려 오차가 미세하게 증가</strong>. 월 단위 데이터의 무작위 변동(Random Variation, 12장 4성분 중 1)이 너무 커서 어떤 평활화도 흡수할 수 없었기 때문입니다.</p>
+                </div>
+                <div class="formula-box" style="font-size: 14px; padding: 14px 18px; margin: 0; border-left-color: var(--accent-blue);">
+                    <strong>가설:</strong> 월 단위 노이즈가 신호를 압도 <br>
+                    <strong>다음 시도:</strong> <span style="color:var(--accent-blue);">집계 기간 확대 (분기)</span> → 다음 슬라이드
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Sanchez-Partida et al. (2018) Interfaces, 48(6), Figures 5·6, p.571</div>
+    <div class="slide-counter">13 / 30</div>
+</section>
+<!-- ========== SLIDE 13A END ========== -->
+
+<!-- ========== SLIDE 14 START ========== Phase 1 분기 단위 예측 -->
+<section class="slide" id="slide-14">
+    <div class="content-wrapper">
+        <h2 class="section-title">STP 사례 ③-②: 분기 집계 — 평활화의 진가 발휘</h2>
+
+        <div class="split-layout" style="align-items: stretch;">
+            <!-- 좌측: Figure 7 (선형회귀 분기) -->
+            <div class="grid-card" style="padding: 18px; display: flex; flex-direction: column;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="font-size: 17px; color: #FFB800;">선형회귀 · 분기</h3>
+                    <span style="background: rgba(255,184,0,0.15); color: #FFB800; padding: 4px 12px; border-radius: 12px; font-size: 13px; font-weight: 700; border: 1px solid rgba(255,184,0,0.4);">MAPE 20%</span>
+                </div>
+                <img src="images/stp-figure7.png" alt="Figure 7 - 분기별 선형회귀 예측" style="width: 100%; height: auto; flex: 1; max-height: 360px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.95); padding: 10px;">
+                <p style="font-size: 12px; color: var(--text-soft); text-align: center; margin-top: 8px; font-style: italic;">Figure 7 — Sanchez-Partida et al. (2018) p.572</p>
+            </div>
+
+            <!-- 우측: Figure 8 (이중지수평활 분기 + 계절지수) -->
+            <div class="grid-card highlight-card" style="padding: 18px; display: flex; flex-direction: column;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <h3 style="font-size: 17px; color: var(--emerald);">이중지수평활 · 분기 + 계절지수 ★</h3>
+                    <span style="background: rgba(61,205,88,0.18); color: var(--emerald); padding: 4px 12px; border-radius: 12px; font-size: 13px; font-weight: 800; border: 1px solid var(--emerald); box-shadow: 0 0 10px rgba(61,205,88,0.3);">MAPE 4%</span>
+                </div>
+                <img src="images/stp-figure8.png" alt="Figure 8 - 분기별 이중지수평활 예측 (계절지수 포함)" style="width: 100%; height: auto; flex: 1; max-height: 360px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,0.95); padding: 10px;">
+                <p style="font-size: 12px; color: var(--text-soft); text-align: center; margin-top: 8px; font-style: italic;">Figure 8 — Sanchez-Partida et al. (2018) p.572</p>
+            </div>
+        </div>
+
+        <!-- 하단: 결론 박스 -->
+        <div class="split-layout" style="margin-top: 18px; gap: 18px;">
+            <div class="grid-card" style="padding: 18px; border-left: 5px solid #FFB800;">
+                <h3 style="font-size: 15px; color: #FFB800; margin-bottom: 8px;">분기 집계만 — 효과 미미</h3>
+                <p style="font-size: 13px; color: var(--text-soft); line-height: 1.6;">선형회귀의 분기 집계는 22→20%로 <strong>거의 변화 없음</strong>. 회귀선이 직선이라 계절 패턴(여름 피크 등)을 잡지 못함.</p>
+            </div>
+            <div class="grid-card highlight-card" style="padding: 18px;">
+                <h3 style="font-size: 15px; color: var(--emerald); margin-bottom: 8px;">결합 효과 ★ — MAPE 1/5로 감축</h3>
+                <p style="font-size: 13px; color: var(--text-soft); line-height: 1.6;">집계 + 평활화 + <strong>계절지수 (1.09 / 0.70 / 0.99 / 1.22)</strong>의 결합이 결정적. 23%→4% (-83%).</p>
+            </div>
+        </div>
+
+        <div class="editorial-quote-container" style="margin-top: 16px; padding: 22px;">
+            <p class="editorial-quote" style="font-size: 18px;">교훈: 단일 기법으로는 부족하다. <span>집계·평활화·계절성</span>이 함께 작동할 때 비로소 예측이 라인의 변동을 길들인다.</p>
+        </div>
+    </div>
+    <div class="slide-source">출처: Sanchez-Partida et al. (2018) Interfaces, 48(6), Figures 7·8, p.572</div>
+    <div class="slide-counter">14 / 30</div>
+</section>
+<!-- ========== SLIDE 14 END ========== -->
+
+	
+
+ <!-- ========== SLIDE 15 START ========== 채찍효과 메커니즘 -->
+<section class="slide" id="slide-15">
+    <div class="content-wrapper">
+        <h2 class="section-title">STP 사례 ④ — 채찍효과의 BOM 증폭 </h2>
+        <div class="split-layout" style="align-items: stretch;">
+
+            <!-- 좌측 -->
+            <div class="text-pane" style="justify-content: flex-start;">
+                <h3 style="margin-bottom: 14px;">왜 작은 예측 오차가 라인을 멈추는가</h3>
+                <p style="margin-bottom: 14px;">본사의 왜곡된 예측이 BOM을 따라 내려가며 단계마다 안전재고를 겹겹이 쌓습니다. 가장 상류(원자재) 지점에서 변동 폭이 폭발하는 <strong>채찍효과의 정보처리 메커니즘</strong>입니다.</p>
+
+                <div class="formula-box" style="font-size: 14px; margin-bottom: 14px;">
+                    <strong>원리 :</strong> BOM 각 계층 자재계획자가 상위 예측 오차를 흡수하려고 안전재고를 더하면, 그 안전재고가 다시 다음 계층의 수요로 인식되어 또 안전재고가 얹힘 → 상류일수록 변동 폭 기하급수 증가
+                </div>
+
+                <div class="grid-card highlight-card" style="padding: 16px; margin-bottom: 14px;">
+                    <h3 style="font-size: 15px; color: var(--emerald); margin-bottom: 8px;">슈나이더의 해법</h3>
+                    <p style="font-size: 14px; color: var(--text-soft); line-height: 1.6;">분기 평활화로 첫 단계 변동을 누른 뒤 <strong>Kinaxis 동시계획</strong>으로 BOM 전 계층 동기화 — 두 단계 모두에서 증폭 차단.</p>
+                </div>
+
+                <div class="grid-card" style="padding: 16px; border-left: 5px solid var(--accent-gold); left: 0px; top: 0px; box-sizing: border-box; z-index: 10; width: 624px; height: 77px;">
+                    <h3 style="font-size: 14px; color: var(--accent-gold); margin-bottom: 6px; position: relative; left: 0px; top: 8px; box-sizing: border-box; z-index: 10;">린·JIT의 역설</h3>
+                    <p style="font-size: 13px; color: var(--text-soft); line-height: 1.55; position: relative; left: -2px; top: 10px; box-sizing: border-box; z-index: 10;">버퍼를 없앤 만큼 채찍효과에 더 취약 → 예측 평활화가 린 시스템의 <strong>전제 조건</strong>.</p>
+                </div>
+            </div>
+
+            <!-- 우측 -->
+            <div class="text-pane" style="justify-content: flex-start;">
+                <h3 style="margin-bottom: 14px;">STP에서의 채찍효과 4단계</h3>
+                <div class="stepper-container">
+                    <div class="step-row">
+                        <div class="step-num">1</div>
+                        <div class="step-text" style="font-size: 15px;">본사 선형회귀(월) 예측, MAPE 22%</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-num">2</div>
+                        <div class="step-text" style="font-size: 15px;">자재계획 부서 BOM 전개 시 +안전재고</div>
+                    </div>
+                    <div class="step-row">
+                        <div class="step-num">3</div>
+                        <div class="step-text" style="font-size: 15px;">하위 자재(스탬핑) 단계 +안전재고</div>
+                    </div>
+                    <div class="step-row" style="border-color:#FF5050;">
+                        <div class="step-num" style="background:#FF5050; box-shadow:0 0 10px #FF5050;">!</div>
+                        <div class="step-text" style="font-size: 15px; color: #FF8080;">누적 결과: <strong>최대 100% 안전재고</strong> + 라인 정지</div>
+                    </div>
+                </div>
+
+                <div class="grid-card" style="padding: 18px; margin-top: 16px; border-left: 5px solid var(--accent-gold);">
+                    <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 10px;">STP의 주범</h3>
+                    <ul class="compact-list" style="gap: 8px;">
+                        <li style="font-size: 14px;"><strong>Information Processing Obstacle</strong> ★<br><span style="font-size:12px; color:var(--text-soft);">본사-공장 정보 단절, 공장이 예측 수정 권한 없음</span></li>
+                        <li style="font-size: 14px;"><strong>Behavioral Obstacle</strong><br><span style="font-size:12px; color:var(--text-soft);">각 자재계획자가 자체 안전재고로 과잉 반응</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Sanchez-Partida et al. (2018) p.568 </div>
+    <div class="slide-counter">15 / 30</div>
+</section>
+<!-- ========== SLIDE 15 END ========== -->
+
+
+<!-- ========== SLIDE 16 START ========== Phase 2 총괄 계획 -->
+<section class="slide" id="slide-16">
+    <div class="content-wrapper">
+        <h2 class="section-title">STP 사례 ⑤ — Phase 2: 총괄 계획 </h2>
+        <div class="split-layout" style="align-items: stretch;">
+
+            <!-- 좌측 -->
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label">Chase vs Level</div>
+                <h3 style="margin-top: 6px; margin-bottom: 14px;">두 전략의 정량 비교 후 선택</h3>
+                <p style="margin-bottom: 14px;">안정적 예측(MAPE 4%) 확보 후 비로소 가능해진 단계. <strong>Push-Pull 경계 설계</strong>를 따라 두 전략의 운영비·수익·이익을 두 시나리오에서 비교했습니다.</p>
+
+                <div class="grid-card highlight-card" style="padding: 18px; margin-bottom: 14px;">
+                    <h3 style="color: var(--emerald); font-size: 16px; margin-bottom: 10px;">Chase 전략 채택 이유</h3>
+                    <ul class="compact-list" style="gap: 8px;">
+                        <li style="font-size: 14px;"><strong>MTS 85% + MTO 15%</strong> → Pull 비중 큰 라인</li>
+                        <li style="font-size: 14px;">멕시코 인건비 → 채용·해고 유연성 강점</li>
+                        <li style="font-size: 14px;">안전 제품 → 외주 불가 → 혼합 전략 배제</li>
+                    </ul>
+                </div>
+
+                <div class="formula-box" style="font-size: 13px; padding: 14px 18px; margin-bottom: 14px;">
+                    <strong>Chase:</strong> 평균 수요 추종, 재고비↓ / 인건비↑<br>
+                    <strong>Level:</strong> 평준 생산, 인건비↓ / 재고비↑<br>
+                    <strong style="color:var(--emerald);">STP: Chase 우세 → 전략 유지</strong>
+                </div>
+
+                <div class="grid-card" style="padding: 16px; border-left: 5px solid var(--accent-blue);">
+                    <h3 style="font-size: 14px; color: var(--accent-blue); margin-bottom: 6px;">Push-Pull 경계 </h3>
+                    <p style="font-size: 13px; color: var(--text-soft); line-height: 1.55;">스탬핑·도장 = <strong>Push</strong> (예측 기반 대량 가공)<br>캐비닛 조립 = <strong>Pull</strong> (실수요 기반) → 두 영역을 잇는 동기화가 Chase 전략의 핵심</p>
+                </div>
+            </div>
+
+            <!-- 우측 -->
+            <div class="text-pane" style="justify-content: flex-start;">
+                <h3 style="margin-bottom: 14px; font-size: 22px;">2014년 상반기 (USD)</h3>
+                <table class="compact-table" style="font-size: 14px;">
+                    <thead>
+                        <tr>
+                            <th>지표</th>
+                            <th style="color:var(--emerald);">CHASE</th>
+                            <th style="color:#FFB800;">LEVEL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>운영비</td><td><strong>$1.03M</strong></td><td>$1.15M</td></tr>
+                        <tr><td>수익</td><td>$2.11M</td><td>$2.11M</td></tr>
+                        <tr style="background: rgba(61,205,88,0.05);"><td><strong>이익</strong></td><td style="color:var(--emerald);"><strong>$1.078M</strong></td><td>$0.962M</td></tr>
+                    </tbody>
+                </table>
+
+                <h3 style="margin: 20px 0 14px; font-size: 22px;">2015년 상반기 (USD)</h3>
+                <table class="compact-table" style="font-size: 14px;">
+                    <thead>
+                        <tr>
+                            <th>지표</th>
+                            <th style="color:var(--emerald);">CHASE</th>
+                            <th style="color:#FFB800;">LEVEL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>운영비</td><td><strong>$907K</strong></td><td>$1.00M</td></tr>
+                        <tr><td>수익</td><td>$1.87M</td><td>$1.87M</td></tr>
+                        <tr style="background: rgba(61,205,88,0.05);"><td><strong>이익</strong></td><td style="color:var(--emerald);"><strong>$968K</strong></td><td>$870K</td></tr>
+                    </tbody>
+                </table>
+
+                <div class="grid-card highlight-card" style="padding: 16px; margin-top: 16px; left: 0px; top: 0px; box-sizing: border-box; z-index: 10; width: 626px; height: 61px;">
+                    <p style="font-size: 13px; color: var(--text-soft); line-height: 1.6; position: relative; left: 1px; top: 14px; box-sizing: border-box; z-index: 10;"><strong style="color:var(--emerald);">두 시나리오 일관 결과:</strong> Chase가 운영비 약 -10%, 이익 약 +12% 우세 → 기존 전략 유지가 정량적으로 검증됨</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Sanchez-Partida et al. (2018) Tables 1–2 </div>
+    <div class="slide-counter">16 / 30</div>
+</section>
+<!-- ========== SLIDE 16 END ========== -->
+
+
+     <!-- ========== SLIDE 17 START ========== Phase 3 EOQ·SMED -->
+<section class="slide" id="slide-17">
+    <div class="content-wrapper">
+        <h2 class="section-title">STP 사례 ⑥ — Phase 3: SMED·EOQ 사슬 </h2>
+        <div class="split-layout">
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label">Causal Chain</div>
+                <h3 style="margin-top: 6px;">셋업비 ↓ → 배치 ↓ → 재고 ↓</h3>
+                <p>교재 8장의 EOQ 공식 <strong>√(2DS/H)</strong>에서 S(셋업비)를 줄이면 최적 배치가 작아집니다. SMED로 셋업을 39→9분(-77%) 줄인 덕분에 작은 배치를 자주 만들어도 규모의 경제를 잃지 않게 되었습니다.</p>
+
+                <div class="formula-box" style="font-size: 14px; margin-top: 12px;">
+                    <strong>EOQ:</strong> Q* = √(2DS/H)<br>
+                    <strong>칸반 수:</strong> #KB = (D × Lt + SS) / EOQ<br>
+                    <span style="font-size:13px; opacity:0.75;">→ (s, S) 정책과 동일 논리</span>
+                </div>
+
+                <div class="stepper-container" style="margin-top: 14px;">
+                    <div class="step-row" style="padding: 10px 16px;">
+                        <div class="step-num">1</div>
+                        <div class="step-text" style="font-size:14px;"><strong>SMED</strong>로 셋업 39분 → 9분</div>
+                    </div>
+                    <div class="step-row" style="padding: 10px 16px;">
+                        <div class="step-num">2</div>
+                        <div class="step-text" style="font-size:14px;"><strong>EOQ</strong> 500개로 통일 (1:1 매칭)</div>
+                    </div>
+                    <div class="step-row" style="padding: 10px 16px;">
+                        <div class="step-num">3</div>
+                        <div class="step-text" style="font-size:14px;"><strong>칸반</strong> 49장 → 24장 (-51%)</div>
+                    </div>
+                    <div class="step-row" style="padding: 10px 16px; border-color:var(--emerald);">
+                        <div class="step-num">4</div>
+                        <div class="step-text" style="font-size:14px; color:var(--emerald);"><strong>재고비용</strong> -78%</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-pane" style="justify-content: flex-start;">
+                <h3 style="margin-bottom: 12px;">EOQ 표준화 (교재 6장)</h3>
+
+                <div class="grid-card" style="padding: 18px; margin-bottom: 14px; left: 0px; top: 0px; box-sizing: border-box; z-index: 10; width: 630px; height: 402px;">
+                    <table class="compact-table" style="font-size: 13px;">
+                        <thead>
+                            <tr><th>부품</th><th>개선 전 배치</th><th>개선 후</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>F–S2</td><td>1,344</td><td><strong style="color:var(--emerald);">500</strong></td></tr>
+                            <tr><td>SON1</td><td>2,000</td><td><strong style="color:var(--emerald);">500</strong></td></tr>
+                            <tr><td>SON2</td><td>1,000</td><td><strong style="color:var(--emerald);">500</strong></td></tr>
+                            <tr><td>F–S1</td><td>1,512</td><td><strong style="color:var(--emerald);">500</strong></td></tr>
+                        </tbody>
+                    </table>
+                    <p style="font-size:13px; color: var(--text-soft); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--glass-border);">→ 일일 부품 감축 약 <strong>28,112개</strong> · 1:1 소비 매칭으로 WIP 정리</p>
+                </div>
+
+                <!-- 결과 3종 -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+                    <div style="text-align: center; padding: 14px 8px; background: rgba(61, 205, 88, 0.08); border: 1px solid rgba(61, 205, 88, 0.3); border-radius: 10px; position: relative; left: 0px; top: 14px; box-sizing: border-box; z-index: 10;">
+                        <div style="font-size: 26px; font-weight: 800; color: var(--emerald);">-78%</div>
+                        <div style="font-size: 11px; color: var(--text-soft); margin-top: 4px;">재고비용</div>
+                        <div style="font-size: 11px; color: var(--text-main);">$21.9K→$4.9K</div>
+                    </div>
+                    <div style="text-align: center; padding: 14px 8px; background: rgba(0, 170, 255, 0.08); border: 1px solid rgba(0, 170, 255, 0.3); border-radius: 10px; position: relative; left: 0px; top: 14px; box-sizing: border-box; z-index: 10;">
+                        <div style="font-size: 26px; font-weight: 800; color: var(--accent-blue);">-51%</div>
+                        <div style="font-size: 11px; color: var(--text-soft); margin-top: 4px;">칸반 카드</div>
+                        <div style="font-size: 11px; color: var(--text-main);">49→24장</div>
+                    </div>
+                    <div style="text-align: center; padding: 14px 8px; background: rgba(255, 184, 0, 0.08); border: 1px solid rgba(255, 184, 0, 0.3); border-radius: 10px; position: relative; left: 0px; top: 14px; box-sizing: border-box; z-index: 10;">
+                        <div style="font-size: 26px; font-weight: 800; color: var(--accent-gold);">-77%</div>
+                        <div style="font-size: 11px; color: var(--text-soft); margin-top: 4px;">셋업 시간</div>
+                        <div style="font-size: 11px; color: var(--text-main);">39→9분</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Sanchez-Partida et al. (2018) Tables 3–6 / 교재 8장 EOQ · 6장 부품 표준화</div>
+    <div class="slide-counter">17 / 30</div>
+</section>
+<!-- ========== SLIDE 17 END ========== -->
+
+
+ <!-- ========== SLIDE 18 START ========== 물류 재설계 -->
+<section class="slide" id="slide-18">
+    <div class="content-wrapper">
+        <h2 class="section-title">STP 사례 ⑦ — 물류 재설계: 크로스도킹 </h2>
+        <div class="split-layout">
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label">Before — 창고 5회 경유</div>
+                <h3 style="margin-top: 6px;">불필요한 저장의 5단계</h3>
+                <p>개선 전 캐비닛 부품은 스탬핑 → 창고 → 도장 → 창고 → 용접 → 창고 → 캐비닛 조립 → 창고 → 라인 9 까지 무려 <strong>5번의 창고 경유</strong>를 거쳤습니다. 매번 ERP 트랜잭션·팔레트 사용·지게차 운반이 발생.</p>
+
+                <div class="grid-card" style="padding: 18px; margin-top: 12px; border-left: 5px solid #FF5050;">
+                    <h3 style="font-size: 15px; color: #FF8080; margin-bottom: 10px;">개선 전 문제점</h3>
+                    <ul class="compact-list" style="gap: 6px;">
+                        <li style="font-size: 14px;">창고 공간 부족 (49개 저장 위치)</li>
+                        <li style="font-size: 14px;">과도한 칸반 카드 → 불필요 팔레트</li>
+                        <li style="font-size: 14px;">불필요 ERP 트랜잭션</li>
+                        <li style="font-size: 14px;">자재 이동·핸들링 시간 낭비</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label" style="background: var(--emerald-dim); color: var(--emerald);">After — 2일 직송</div>
+                <p>창고 5회 경유 → <strong>2일 직송 크로스도킹</strong>으로 전환. 부품이 도장·용접·조립을 거쳐 라인 9로 직접 흘러가도록 동기화</p>
+
+                <div class="grid-card highlight-card" style="padding: 18px; margin-top: 12px;">
+                    <h3 style="font-size: 15px; color: var(--emerald); margin-bottom: 12px;">크로스도킹 효과</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+                        <div style="text-align: center; padding: 12px; background: rgba(61,205,88,0.06); border-radius: 8px;">
+                            <div style="font-size: 22px; font-weight: 800; color: var(--emerald);">49→0</div>
+                            <div style="font-size: 12px; color: var(--text-soft); margin-top: 4px;">저장 위치 제거</div>
+                        </div>
+                        <div style="text-align: center; padding: 12px; background: rgba(61,205,88,0.06); border-radius: 8px;">
+                            <div style="font-size: 22px; font-weight: 800; color: var(--emerald);">3일→2일</div>
+                            <div style="font-size: 12px; color: var(--text-soft); margin-top: 4px;">스탬핑 리드타임</div>
+                        </div>
+                        <div style="text-align: center; padding: 12px; background: rgba(61,205,88,0.06); border-radius: 8px;">
+                            <div style="font-size: 22px; font-weight: 800; color: var(--emerald);">$26K</div>
+                            <div style="font-size: 12px; color: var(--text-soft); margin-top: 4px;">반기당 운반 절감</div>
+                        </div>
+                        <div style="text-align: center; padding: 12px; background: rgba(61,205,88,0.06); border-radius: 8px;">
+                            <div style="font-size: 22px; font-weight: 800; color: var(--emerald);">$4,400</div>
+                            <div style="font-size: 12px; color: var(--text-soft); margin-top: 4px;">월 자재 운송 절감</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="formula-box" style="font-size: 13px; padding: 12px 16px; margin-top: 12px;">
+                    "크로스도킹은 창고 재고 유지비와 핸들링 비용을 제로에 가깝게 만든다" — STP가 정확히 구현한 사례
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Sanchez-Partida et al. (2018) Figures 3·9 </div>
+    <div class="slide-counter">18 / 30</div>
+</section>
+<!-- ========== SLIDE 18 END ========== -->
+
+
+
+ <!-- ========== SLIDE 19 START ========== 종합 성과 -->
+<section class="slide" id="slide-19">
+    <div class="content-wrapper">
+        <h2 class="section-title">STP 사례 ⑧ — SL과 TCO 종합 성과</h2>
+
+        <div class="split-layout" style="align-items: stretch;">
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label">Service Level </div>
+                <h3 style="margin-top: 6px;">안전재고 안 늘리고 SL 달성</h3>
+                <p>교재 8장 (s, S) 정책에서 SL을 50→90→99%로 높이면 안전재고는 기하급수로 증가. STP는 <strong>예측 정확도 개선으로 STD·√LT 항을 줄여</strong> 안전재고 증가 없이 SL 목표를 달성했습니다.</p>
+
+                <div class="formula-box" style="font-size:13px; padding: 12px 16px; margin-top: 12px;">
+                    s = (LT × AVG) + (z × <strong>STD</strong> × √LT)<br>
+                    <span style="font-size:12px; opacity:0.8;">↑ STD 자체를 줄이면 z(SL 계수) 상승 부담 ↓</span>
+                </div>
+
+                <div class="grid-card" style="padding: 18px; margin-top: 12px;">
+                    <h3 style="font-size: 15px; color: var(--emerald); margin-bottom: 10px;">SL 비교 (24개월)</h3>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                        <div style="text-align: center; padding: 14px; background: rgba(255,80,80,0.08); border: 1px solid rgba(255,80,80,0.3); border-radius: 10px;">
+                            <div style="font-size:12px; color:#FF8080; margin-bottom:4px;">개선 전</div>
+                            <div style="font-size: 22px; font-weight: 800; color: #FF8080;">8/24</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 4px;">개월 미달</div>
+                        </div>
+                        <div style="text-align: center; padding: 14px; background: rgba(61,205,88,0.08); border: 1px solid rgba(61,205,88,0.3); border-radius: 10px;">
+                            <div style="font-size:12px; color:var(--emerald); margin-bottom:4px;">개선 후</div>
+                            <div style="font-size: 22px; font-weight: 800; color: var(--emerald);">3/24</div>
+                            <div style="font-size: 11px; color: var(--text-soft); margin-top: 4px;">개월 미달</div>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; color: var(--text-soft); margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--glass-border);">⚠ 남은 3개월은 모두 <strong>외주 부품 차질</strong> (15.4·5월, 16.2월 최저 60%)</p>
+                </div>
+            </div>
+
+            <div class="text-pane" style="justify-content: flex-start;">
+                <h3 style="margin-top: 6px;">TCO 3대 구성요소 동시 감소</h3>
+
+                <table class="compact-table" style="font-size: 13px; margin-top: 8px;">
+                    <thead>
+                        <tr>
+                            <th style="width: 50%;">TCO 구성요소 (3장)</th>
+                            <th>24개월 절감</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ownership Cost</strong><br><span style="font-size:11px; color:var(--text-soft);">재고 유지비</span></td>
+                            <td><strong style="color:var(--emerald);">$407,232</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Acquisition Cost</strong><br><span style="font-size:11px; color:var(--text-soft);">자재 이동·핸들링</span></td>
+                            <td><strong style="color:var(--emerald);">$105,725</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Operational Cost</strong><br><span style="font-size:11px; color:var(--text-soft);">Chase 전략 운영비</span></td>
+                            <td><strong style="color:var(--emerald);">$505,210</strong></td>
+                        </tr>
+                        <tr style="background: rgba(61,205,88,0.1);">
+                            <td><strong>총 절감</strong></td>
+                            <td><strong style="color:var(--emerald); font-size:15px;">$1,018,167</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="formula-box" style="font-size: 13px; padding: 12px 16px; margin-top: 12px; border-left-color: var(--accent-gold);">
+                    <strong>투자 회수율 80배:</strong><br>
+                    투자 $12,800 (SMED $7.5K + JIT 컨테이너 $4.5K + 교육 $800) → 절감액의 <strong style="color:var(--accent-gold);">1.25%</strong>
+                </div>
+
+                <div class="grid-card highlight-card" style="padding: 14px; margin-top: 10px;">
+                    <p style="font-size: 13px; color: var(--text-soft); line-height: 1.55;"><strong style="color:var(--emerald);">교재의 명제 검증:</strong> 운영(예측·재고·린·물류)이 <strong>하나의 사슬</strong>로 묶일 때만 TCO 모든 구성요소가 동시 감소.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide-source">출처: Sanchez-Partida et al. (2018) Table 7 </div>
+    <div class="slide-counter">19 / 30</div>
+</section>
+<!-- ========== SLIDE 19 END ========== -->
+
+
+
+<!-- ========== SLIDE 20 START ========== Kinaxis 영상 (로컬 mp4) -->
+<section class="slide" id="slide-20">
+    <div class="content-wrapper centered" style="justify-content: center;">
+
+        <!-- 상단: 타이틀 영역 -->
+        <div style="text-align: center; margin-bottom: 28px;">
+            <div class="section-label" style="margin-bottom: 12px;">Digital Transformation in Action</div>
+            <h2 class="section-title" style="font-size: 42px; margin-bottom: 12px;">디지털 전환의 실제 — Kinaxis 도입</h2>
+            <p style="font-size: 18px; color: var(--text-soft); max-width: 800px; margin: 0 auto; line-height: 1.5;">
+                STP가 <strong style="color:var(--emerald);">한 공장의 사슬</strong>이라면, Kinaxis는 그것을 <strong style="color:var(--emerald);">전사 공급망 전체</strong>로 확장한 디지털 토대입니다.
+            </p>
+        </div>
+
+        <!-- 중앙: 로컬 MP4 영상 플레이어 -->
+        <div style="width: 100%; max-width: 1100px; margin: 0 auto;">
+            <div style="position: relative; border-radius: 16px; overflow: hidden; background: #000; box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 40px rgba(61,205,88,0.18); border: 1px solid var(--glass-border);">
+                <video controls="" preload="metadata" playsinline="" style="width: 100%; height: auto; display: block; aspect-ratio: 16/9; background: #000;" poster="">
+                    <source src="images/Kinaxis.mp4" type="video/mp4">
+                    죄송합니다. 브라우저가 비디오 재생을 지원하지 않습니다.
+                    <a href="images/Kinaxis.mp4" style="color: var(--emerald);">여기에서 영상 다운로드</a>
+                </video>
+            </div>
+
+            <!-- 영상 하단 안내 문구 -->
+            <p style="text-align: center; font-size: 13px; color: var(--text-soft); margin-top: 16px; font-style: italic;">
+                ▲ 재생 버튼을 클릭하여 시청 · 우측 하단 아이콘으로 전체화면 가능
+            </p>
+        </div>
+
+    </div>
+    <div class="slide-source">출처: Schneider Electric × Kinaxis Partnership</div>
+    <div class="slide-counter">20 / 30</div>
+</section>
+<!-- ========== SLIDE 20 END ========== -->
+
+
+
+        <!-- ========== SLIDE 21 START ========== -->
+        <section class="slide" id="slide-21">
+            <div class="content-wrapper">
+                <h2 class="section-title">디지털 시스템 — Kinaxis &amp; EcoStruxure</h2>
+                <div class="split-layout">
+                    <div class="text-pane">
+                        <h3>Kinaxis Maestro</h3>
+                        <p>기존 순차 계획과 달리 수요가 바뀌면 <strong>공급망 전체 영향을 한 번에 다시 계산</strong>하는 동시 계획(Concurrent Planning). 시나리오 시뮬레이션으로 공급 차질 시 즉시 대안 검토.</p>
+                        <ul class="compact-list">
+                            <li><strong>9년+ 협력:</strong> 전자 부품 지출의 상당 부분을 3차 협력사까지 연결</li>
+                            <li><strong>전 구간 가시성:</strong> 컨트롤 타워 + AI 분석으로 예외 감지</li>
+                        </ul>
+                    </div>
+                    <div class="text-pane">
+                        <h3>EcoStruxure</h3>
+                        <p>IoT 기반 개방형 플랫폼. 빌딩·데이터센터·산업·인프라를 하나로 받침.</p>
+                        <div class="stepper-container" style="margin-top: 12px;">
+                            <div class="step-row">
+                                <div class="step-num">1</div>
+                                <div class="step-text" style="font-size: 16px;">연결 제품 (센서·차단기·UPS)</div>
+                            </div>
+                            <div class="step-row">
+                                <div class="step-num">2</div>
+                                <div class="step-text" style="font-size: 16px;">엣지 제어 (현장 실시간 제어)</div>
+                            </div>
+                            <div class="step-row">
+                                <div class="step-num">3</div>
+                                <div class="step-text" style="font-size: 16px; color: var(--emerald);">앱·분석 (Azure 클라우드 디지털 서비스)</div>
+                            </div>
+                        </div>
+                        <div class="grid-card highlight-card" style="padding: 18px; margin-top: 14px;">
+                            <p style="font-size: 15px; color: var(--text-soft);">자기 공장에 먼저 깔아 운영을 디지털화한 뒤, 같은 해법을 고객에게 판매 → <strong style="color: var(--emerald);">자사 공급망이 곧 제품 레퍼런스</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-source">출처: Kinaxis (2019), Schneider Electric EcoStruxure Whitepaper</div>
+            <div class="slide-counter">21 / 30</div>
+        </section>
+        <!-- ========== SLIDE 21 END ========== -->
+        <!-- ========== SLIDE 22 START ========== (구 슬라이드 17: 기능 연결 종합표) -->
+        <section class="slide" id="slide-22">
+            <div class="content-wrapper">
+                <h2 class="section-title">기능 사이의 이어짐 — 종합</h2>
+                <div class="grid-card" style="padding: 24px;">
+                    <table class="compact-table">
+                        <thead>
+                            <tr><th>기능</th><th>STP 사례의 대응</th><th>이어지는 효과</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>수요 예측</strong></td>
+                                <td>선형회귀 → 분기 이중지수평활 (MAPE 4%)</td>
+                                <td>채찍효과·변동 억제</td>
+                            </tr>
+                            <tr>
+                                <td><strong>생산·용량</strong></td>
+                                <td>추종 전략, 6개월→월→일 3단계</td>
+                                <td>안정 예측 위 수요 추종</td>
+                            </tr>
+                            <tr>
+                                <td><strong>재고</strong></td>
+                                <td>EOQ 500, 칸반 49→24장, 재고 -78%</td>
+                                <td>변동 감소가 안전재고 절감으로</td>
+                            </tr>
+                            <tr>
+                                <td><strong>물류</strong></td>
+                                <td>저장 5회 제거, 2일 직송, 복합운송</td>
+                                <td>리드타임·운송·핸들링비 절감</td>
+                            </tr>
+                            <tr>
+                                <td><strong>품질</strong></td>
+                                <td>SMED 39→9분, 서비스 98%</td>
+                                <td>작은 배치 경제화로 전체를 지지</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grid-card" style="padding: 20px; margin-top: 16px; border-left: 5px solid #FFB800;">
+                    <p style="font-size: 16px; color: var(--text-soft);">⚠️ <strong>남은 과제:</strong> 개선 뒤에도 남은 서비스 수준 미달은 전부 외부 공급업체 납품 차질에서 비롯. 연속흐름은 사내 변동은 길들였지만, 버퍼를 없앤 만큼 외주 부품 공급 중단에 오히려 약해질 수 있습니다.</p>
+                </div>
+            </div>
+            <div class="slide-source">출처: Sanchez-Partida et al. (2018) Interfaces, 48(6)</div>
+            <div class="slide-counter">22 / 30</div>
+        </section>
+        <!-- ========== SLIDE 22 END ========== -->
+		
+	<!--=============================================== 김진혁 Part =======================================-->
+		
+        <!-- ========== SLIDE 23 START ========== [NEW] 동시 계획 vs 순차 S&OP -->
+        <section class="slide" id="slide-23">
+            <div class="content-wrapper">
+                <h2 class="section-title">동시 계획 vs 순차 S&amp;OP</h2>
+                <div class="split-layout">
+                    <div class="grid-card" style="padding: 28px; border-left: 5px solid #FF5050;">
+                        <h3 style="color: #FF8080; font-size: 22px; margin-bottom: 14px;">전통 순차 S&amp;OP</h3>
+                        <div class="flow-container" style="flex-direction: column; margin: 12px 0;">
+                            <div class="flow-node" style="border-right: none; border-bottom: 1px solid var(--glass-border);">
+                                <span class="flow-title">수요 계획</span>
+                                <span class="flow-desc">주 단위</span>
+                            </div>
+                            <div class="flow-node" style="border-right: none; border-bottom: 1px solid var(--glass-border);">
+                                <span class="flow-title">↓ 생산 계획</span>
+                                <span class="flow-desc">다음 주</span>
+                            </div>
+                            <div class="flow-node" style="border-right: none; border-bottom: 1px solid var(--glass-border);">
+                                <span class="flow-title">↓ 구매 계획</span>
+                                <span class="flow-desc">또 다음 주</span>
+                            </div>
+                            <div class="flow-node" style="border-right: none;">
+                                <span class="flow-title">↓ 물류 계획</span>
+                                <span class="flow-desc">맨 끝</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 14px; color: var(--text-soft); margin-top: 10px;"><strong style="color:#FF8080;">한계:</strong> 사이클 1회에 수 주 ~ 1개월. 수요가 바뀌면 처음부터 다시. 그 사이 채찍효과·재고 증가.</p>
+                    </div>
+                    <div class="grid-card highlight-card" style="padding: 28px;">
+                        <h3 style="color: var(--emerald); font-size: 22px; margin-bottom: 14px;">Kinaxis 동시 계획</h3>
+                        <div style="text-align: center; padding: 20px; border: 2px dashed var(--emerald); border-radius: 14px; margin: 12px 0; background: rgba(61,205,88,0.05);">
+                            <div style="font-size: 16px; font-weight: 700; color: var(--emerald); margin-bottom: 12px;">수요·공급·재고·물류 동시 재계산</div>
+                            <div style="display: grid; grid-template-columns: repeat(2,1fr); gap: 8px;">
+                                <div style="padding: 8px; background: rgba(61,205,88,0.1); border-radius: 6px; font-size: 13px;">수요</div>
+                                <div style="padding: 8px; background: rgba(0,170,255,0.1); border-radius: 6px; font-size: 13px;">공급</div>
+                                <div style="padding: 8px; background: rgba(255,184,0,0.1); border-radius: 6px; font-size: 13px;">재고</div>
+                                <div style="padding: 8px; background: rgba(180,130,255,0.1); border-radius: 6px; font-size: 13px;">물류</div>
+                            </div>
+                            <div style="font-size: 24px; margin-top: 10px;">↻</div>
+                            <div style="font-size: 13px; color: var(--text-soft);">분 단위 ~ 일 단위 사이클</div>
+                        </div>
+                        <p style="font-size: 14px; color: var(--text-soft);"><strong style="color: var(--emerald);">강점:</strong> 시나리오 What-if 즉시 검토. 공급 차질 시 대체 공급사·경로를 분 단위로 평가. 9년+ 협력으로 3차 협력사까지 가시성 확보.</p>
+                    </div>
+                </div>
+                <div class="editorial-quote-container" style="margin-top: 18px; padding: 24px;">
+                    <p class="editorial-quote" style="font-size: 19px;">교재의 S&amp;OP는 대체로 <span>순차 구조</span>를 전제합니다. 슈나이더는 동시 계획으로 <span>이 전제 자체를 갈아치웠습니다</span>. 효율과 회복력을 동시에 잡는 디지털 토대입니다.</p>
+                </div>
+            </div>
+            <div class="slide-source">출처: Kinaxis "What is Concurrent Planning" / Schneider Electric Integrated Report (2025)</div>
+            <div class="slide-counter">23 / 30</div>
+        </section>
+        <!-- ========== SLIDE 23 END ========== -->
+
+        <!-- ========== SLIDE 24 START ========== [NEW] 공급망 성과 - 효율 (재무) -->
+        <section class="slide" id="slide-24">
+            <div class="content-wrapper">
+                <h2 class="section-title">공급망 성과 ① — 효율 (재무)</h2>
+                <div class="split-layout">
+                    <div class="text-pane">
+                        <h3>운영 우수성의 재무 증거</h3>
+                        <p>2025년 슈나이더는 사상 최고 수준의 재무 성과를 기록했습니다. 특히 산업 생산성이 <strong>5억 9,600만 유로</strong> 증가했는데, 이는 생산설비·구매·물류가 비용 효율적으로 돌아가고 있다는 직접 신호입니다.</p>
+                        <ul class="compact-list">
+                            <li><strong>매출 402억€:</strong> 유기 성장 8.9%</li>
+                            <li><strong>조정 EBITA 마진 18.7%:</strong> 산업 평균 상회</li>
+                            <li><strong>잉여현금흐름 46억€:</strong> 재투자 여력 확보</li>
+                            <li><strong>산업 생산성 +5.96억€:</strong> 운영 우수성의 결과</li>
+                            <li><strong>재고일수 -3일:</strong> 전년 대비 운전자본 개선</li>
+                        </ul>
+                    </div>
+                    <div class="grid-layout cols-2" style="gap: 18px; align-content: center;">
+                        <div class="massive-number-box" style="min-height: 160px; padding: 24px;">
+                            <div class="massive-number" style="font-size: 60px;">402억€</div>
+                            <div class="massive-label" style="font-size: 14px;">2025 매출</div>
+                        </div>
+                        <div class="massive-number-box" style="min-height: 160px; padding: 24px;">
+                            <div class="massive-number" style="font-size: 60px;">18.7%</div>
+                            <div class="massive-label" style="font-size: 14px;">조정 EBITA 마진</div>
+                        </div>
+                        <div class="massive-number-box" style="min-height: 160px; padding: 24px;">
+                            <div class="massive-number" style="font-size: 60px;">46억€</div>
+                            <div class="massive-label" style="font-size: 14px;">잉여현금흐름</div>
+                        </div>
+                        <div class="massive-number-box" style="min-height: 160px; padding: 24px;">
+                            <div class="massive-number" style="font-size: 60px;">+596M€</div>
+                            <div class="massive-label" style="font-size: 14px;">산업 생산성 증가</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-source">출처: Schneider Electric (2025) Integrated Report</div>
+            <div class="slide-counter">24 / 30</div>
+        </section>
+        <!-- ========== SLIDE 24 END ========== -->
+
+<!-- ========== SLIDE 25 START ========== 공급망 성과 - 대응성·회복력 -->
+<section class="slide" id="slide-25">
+    <div class="content-wrapper">
+        <h2 class="section-title" style="position: relative; left: -7px; top: 19px; box-sizing: border-box; z-index: 10;">공급망 성과 ② — 대응성·회복력</h2>
+
+        <div class="asymmetric-layout-37">
+
+            <!-- 좌측: 텍스트 -->
+            <div class="text-pane" style="justify-content: flex-start;">
+                <div class="section-label">Responsiveness &amp; Resilience</div>
+                <h3 style="margin-top: 6px;">납기는 물류가 아니라 계획 역량의 결과</h3>
+
+                <p style="font-size: 17px;">
+                    슈나이더의 납기 성과는 단순 배송 능력이 아니라
+                    <strong>공급망 계획, 용량 예약, 지역화 운영</strong>이 결합된 결과입니다.
+                    특히 데이터센터 수요가 급증하는 상황에서도 Vantage Data Centers에
+                    예측 가능한 납품을 제공한 사례는 대응성과 회복력을 동시에 보여줍니다.
+                </p>
+
+                <ul class="compact-list">
+                    <li style="left: 2px; top: -27px; box-sizing: border-box; z-index: 10;"><strong>Capacity Reservation:</strong> 핵심 고객 수요를 미리 반영해 공급 가능성 확보</li>
+                    <li style="left: 2px; top: -27px; box-sizing: border-box; z-index: 10;"><strong>Regionalization:</strong> 공급망·영업·R&amp;D를 고객 가까이 배치</li>
+                    <li style="left: 2px; top: -27px; box-sizing: border-box; z-index: 10;"><strong>Multi-Hub:</strong> 단일 국가·단일 거점 의존도를 낮춰 충격 분산</li>
+                    <li style="left: 2px; top: -27px; box-sizing: border-box; z-index: 10;"><strong>Balanced Exposure:</strong> 사업·시장·지역을 분산해 특정 충격에 덜 흔들림</li>
+                </ul>
+
+                <div class="grid-card highlight-card" style="padding: 20px; margin-top: 18px; left: 1px; top: -27px; box-sizing: border-box; z-index: 10;">
+                    <h3 style="font-size: 16px; color: var(--emerald); margin-bottom: 8px;">핵심 해석</h3>
+                    <p style="font-size: 14px; color: var(--text-soft); line-height: 1.6; margin: 0;">
+                        슈나이더의 회복력은 재고를 많이 쌓는 방식이 아니라,
+                        <strong>고객 가까이에서 감지하고, 여러 허브로 우회하며,
+                        사전에 용량을 확보하는 구조</strong>에서 나온다.
+                    </p>
+                </div>
+            </div>
+
+            <!-- 우측: 회복력 메커니즘 시각화 -->
+            <div class="grid-card" style="padding: 24px; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden;">
+
+                <!-- 배경 워터마크 -->
+                <div style="position: absolute; top: -24px; right: -10px; font-size: 120px; font-weight: 800; color: rgba(0,170,255,0.06); font-family: var(--font-heading); line-height: 1; pointer-events: none;">
+                    R
+                </div>
+
+                <div style="position: relative; z-index: 2;">
+                    <div class="section-label" style="background: var(--accent-blue-dim); color: var(--accent-blue); border-color: rgba(0,170,255,0.3); margin-bottom: 14px;">
+                        Resilience Mechanism
+                    </div>
+
+                    <h3 style="font-size: 22px; color: var(--accent-blue); margin-bottom: 18px;">
+                        수요 급증에도 납기를 지키는 구조
+                    </h3>
+
+                    <!-- 사례 카드 -->
+                    <div class="grid-card highlight-card" style="padding: 18px; margin-bottom: 18px; border-left: 5px solid var(--emerald);">
+                        <div style="font-size: 13px; color: var(--text-soft); font-weight: 700; letter-spacing: 1px; margin-bottom: 6px;">
+                            CASE · Vantage Data Centers
+                        </div>
+                        <p style="font-size: 15px; line-height: 1.6; color: var(--text-main); margin: 0;">
+                            데이터센터 수요가 가파르게 늘어도
+                            <strong>공급망 계획</strong>과 <strong>용량 사전 예약</strong>으로
+                            예측 가능한 납품을 제공
+                        </p>
+                    </div>
+
+                    <!-- 메커니즘 흐름 -->
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+
+                        <div style="display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; padding: 12px 14px; background: rgba(0,170,255,0.07); border: 1px solid rgba(0,170,255,0.22); border-radius: 12px;">
+                            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--accent-blue); color: var(--navy-900); display: flex; align-items: center; justify-content: center; font-weight: 800;">1</div>
+                            <div>
+                                <div style="font-size: 15px; font-weight: 800; color: var(--text-main);">Regionalization</div>
+                                <div style="font-size: 12px; color: var(--text-soft);">고객 가까이에서 수요 변화 감지</div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; color: var(--accent-blue); font-size: 18px; line-height: 1;">↓</div>
+
+                        <div style="display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; padding: 12px 14px; background: rgba(61,205,88,0.07); border: 1px solid rgba(61,205,88,0.24); border-radius: 12px;">
+                            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--emerald); color: var(--navy-900); display: flex; align-items: center; justify-content: center; font-weight: 800;">2</div>
+                            <div>
+                                <div style="font-size: 15px; font-weight: 800; color: var(--text-main);">Multi-Hub Network</div>
+                                <div style="font-size: 12px; color: var(--text-soft);">특정 국가·거점 충격을 다른 허브로 분산</div>
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; color: var(--emerald); font-size: 18px; line-height: 1;">↓</div>
+
+                        <div style="display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; padding: 12px 14px; background: rgba(255,184,0,0.08); border: 1px solid rgba(255,184,0,0.28); border-radius: 12px;">
+                            <div style="width: 36px; height: 36px; border-radius: 50%; background: var(--accent-gold); color: var(--navy-900); display: flex; align-items: center; justify-content: center; font-weight: 800;">3</div>
+                            <div>
+                                <div style="font-size: 15px; font-weight: 800; color: var(--text-main);">Capacity Reservation</div>
+                                <div style="font-size: 12px; color: var(--text-soft);">핵심 고객 수요를 사전에 반영해 공급 여력 확보</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 결론 박스 -->
+                    <div style="margin-top: 18px; padding: 18px; border-radius: 14px; background: linear-gradient(135deg, rgba(61,205,88,0.16), rgba(0,170,255,0.12)); border: 1px solid rgba(61,205,88,0.35); text-align: center;">
+                        <div style="font-size: 26px; font-weight: 800; color: var(--emerald); margin-bottom: 4px;">
+                            Predictable Delivery
+                        </div>
+                        <div style="font-size: 13px; color: var(--text-soft);">
+                            대응성 + 회복력 = 충격 속에서도 납기 신뢰성 유지
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="slide-source">출처: Schneider Electric 보고서 5.2 납기와 대응성 · 5.3 회복력과 견고성</div>
+    <div class="slide-counter">25 / 30</div>
+</section>
+<!-- ========== SLIDE 25 END ========== -->
+
+
+        <!-- ========== SLIDE 26 START ========== [NEW] 협력사 ESG -->
+        <section class="slide" id="slide-26">
+            <div class="content-wrapper">
+                <h2 class="section-title">공급망 성과 ③ — Zero Carbon Project</h2>
+                <div class="split-layout">
+                    <div class="text-pane">
+                        <h3>협력사까지 끌어안은 탄소 감축</h3>
+                        <p>슈나이더는 2021년 <strong>Zero Carbon Project</strong>를 시작해 상위 1,000개 협력사와 함께 탄소 감축을 추진했습니다. 이들은 슈나이더 <strong>업스트림 탄소 배출의 약 70%</strong>를 차지합니다.</p>
+                        <p>2021–2025 기간 동안 상위 1,000개 협력사의 운영 탄소 배출(Scope 1+2)을 <strong>56% 감축</strong>했습니다. 공급업체 관리를 단순 납기·품질 관리에서 ESG·지속가능성까지 끌어안는 수준으로 넓힌 결과입니다.</p>
+                        <ul class="compact-list">
+                            <li><strong>대상:</strong> 상위 1,000개 협력사 (업스트림 70%)</li>
+                            <li><strong>목표:</strong> Scope 1+2 운영 배출 50% 감축</li>
+                            <li><strong>실적:</strong> -56% (목표 초과 달성)</li>
+                        </ul>
+                    </div>
+                    <div class="text-pane">
+                        <div class="massive-number-box" style="min-height: 220px;">
+                            <div class="massive-number" style="font-size: 100px;">-56%</div>
+                            <div class="massive-label">상위 1,000개 협력사<br>Scope 1+2 운영 탄소</div>
+                        </div>
+                        <div class="grid-card" style="padding: 22px; margin-top: 16px; border-left: 5px solid var(--accent-blue);">
+                            <h3 style="font-size: 17px; color: var(--accent-blue); margin-bottom: 10px;">왜 중요한가</h3>
+                            <p style="font-size: 15px; color: var(--text-soft); line-height: 1.7;">가트너 평가에서 ESG가 단독 20%를 차지하는 만큼, 협력사 단계의 탄소 성과 없이는 1위가 불가능합니다. 슈나이더가 IT 기업들 사이에서도 1위를 지킬 수 있었던 핵심 차별화 요소.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-source">출처: Schneider Electric "The Zero Carbon Project" / Schneider Sustainability Impact 2021-2025</div>
+            <div class="slide-counter">26 / 30</div>
+        </section>
+        <!-- ========== SLIDE 26 END ========== -->
+
+        <!-- ========== SLIDE 27 START ========== [NEW] 효율 vs 회복력 매트릭스 -->
+        <section class="slide" id="slide-27">
+            <div class="content-wrapper">
+                <h2 class="section-title">효율 vs 회복력 — 슈나이더의 균형점</h2>
+                <div class="split-layout">
+                    <div class="text-pane">
+                        <h3>맞바꿈을 넘어 동시 달성</h3>
+                        <p>전통적 운영관리는 효율과 회복력을 trade-off로 다룹니다. 효율을 위해 버퍼·잉여 용량을 줄이면 충격에 약해지고, 회복력을 위해 안전재고를 쌓으면 비용이 늡니다.</p>
+                        <p>슈나이더는 <strong>디지털 가시성(Kinaxis)</strong>과 <strong>지역화 멀티허브</strong>로 이 맞바꿈을 풀었습니다. 잉여 재고가 아니라 잉여 정보와 잉여 경로로 회복력을 확보하는 접근입니다.</p>
+                        <div class="formula-box" style="margin-top: 14px;">
+                            <strong>핵심 원리:</strong> 정보의 잉여 ≠ 재고의 잉여
+                            <br><span style="font-size: 14px; opacity: 0.8;">전 구간 가시성 + 동시 재계산 + 대체 경로 = 재고 없이도 회복력 확보</span>
+                        </div>
+                    </div>
+                    <div class="grid-card" style="padding: 24px;">
+                        <h3 style="color: var(--emerald); font-size: 18px; margin-bottom: 16px; text-align: center;">2×2 포지셔닝 매트릭스</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; aspect-ratio: 1; max-width: 380px; margin: 0 auto;">
+                            <div style="padding: 14px; background: rgba(255,184,0,0.12); border: 1px dashed var(--accent-gold); border-radius: 10px; display: flex; flex-direction: column; justify-content: center;">
+                                <div style="font-size: 13px; color: var(--accent-gold); font-weight: 700; margin-bottom: 4px;">고회복·저효율</div>
+                                <div style="font-size: 12px; color: var(--text-soft);">전통적 안전재고 중심</div>
+                            </div>
+                            <div style="padding: 14px; background: rgba(61,205,88,0.18); border: 2px solid var(--emerald); border-radius: 10px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 0 20px rgba(61,205,88,0.25);">
+                                <div style="font-size: 13px; color: var(--emerald); font-weight: 800; margin-bottom: 4px;">★ Schneider</div>
+                                <div style="font-size: 12px; color: var(--text-main);">디지털 가시성 + 지역화</div>
+                            </div>
+                            <div style="padding: 14px; background: rgba(255,80,80,0.12); border: 1px dashed #FF5050; border-radius: 10px; display: flex; flex-direction: column; justify-content: center;">
+                                <div style="font-size: 13px; color: #FF8080; font-weight: 700; margin-bottom: 4px;">저회복·저효율</div>
+                                <div style="font-size: 12px; color: var(--text-soft);">계획 부재 상태</div>
+                            </div>
+                            <div style="padding: 14px; background: rgba(0,170,255,0.12); border: 1px dashed var(--accent-blue); border-radius: 10px; display: flex; flex-direction: column; justify-content: center;">
+                                <div style="font-size: 13px; color: var(--accent-blue); font-weight: 700; margin-bottom: 4px;">고효율·저회복</div>
+                                <div style="font-size: 12px; color: var(--text-soft);">단일 거점 린·JIT</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 12px; font-size: 12px; color: var(--text-soft);">
+                            <span>← 낮은 효율</span>
+                            <span>높은 효율 →</span>
+                        </div>
+                        <div style="text-align: center; font-size: 12px; color: var(--text-soft); margin-top: 4px;">세로축: 회복력 (위↑)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-source">출처: Schneider Electric (2025) Integrated Report / Gartner (2025) 분석 종합</div>
+            <div class="slide-counter">27 / 30</div>
+        </section>
+        <!-- ========== SLIDE 27 END ========== -->
+
+        <!-- ========== SLIDE 28 START ========== (구 슬라이드 19 전반: 교재 이론과 맞닿는 부분) -->
+        <section class="slide" id="slide-28">
+            <div class="content-wrapper">
+                <h2 class="section-title">교재 이론과 맞닿는 부분</h2>
+                <div class="split-layout">
+                    <div class="text-pane">
+                        <h3>교재 핵심 이론의 실제 적용</h3>
+                        <ul class="compact-list" style="gap: 14px;">
+                            <li><strong>수요 예측 (12장):</strong> 이중지수평활·계절지수·예측오차 (MAPE·MAD)</li>
+                            <li><strong>재고 관리 (8장):</strong> EOQ 배치, 칸반 공식, 재고 풀링</li>
+                            <li><strong>푸시-풀 경계 (5장):</strong> 85% 재고생산 · 15% 주문생산</li>
+                            <li><strong>제품 설계 (6장):</strong> 표준 모듈 → 지연 차별화 · 대량 고객화</li>
+                        </ul>
+                    </div>
+                    <div class="text-pane">
+                        <h3>SCM 이슈의 실제 해법</h3>
+                        <ul class="compact-list" style="gap: 14px;">
+                            <li><strong>채찍효과 (4장):</strong> 정보처리 문제 → Kinaxis 동기화로 해결</li>
+                            <li><strong>위기 관리 (10장):</strong> 멀티허브·지역화 = 잉여 역량·감지-대응</li>
+                            <li><strong>국소 최적화 → 전체 최적화 (1장):</strong> 본사·공장 동기화로 해소</li>
+                            <li><strong>린·JIT (7장):</strong> SMED→EOQ→칸반 사슬로 작은 배치 경제화</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="editorial-quote-container" style="margin-top: 18px; padding: 24px;">
+                    <p class="editorial-quote" style="font-size: 19px;">교재가 다루는 거의 모든 핵심 이론이 슈나이더의 STP 사례 한 곳에서 <span>하나의 사슬로 작동</span>하고 있습니다.</p>
+                </div>
+            </div>
+            <div class="slide-counter">28 / 30</div>
+        </section>
+        <!-- ========== SLIDE 28 END ========== -->
+
+
+
+        <!-- ========== SLIDE 29 START ========== [NEW] 핵심 시사점 5가지 -->
+        <section class="slide" id="slide-29">
+            <div class="content-wrapper">
+                <h2 class="section-title">핵심 시사점 — 5 Lessons Learned</h2>
+                <div class="grid-layout cols-3" style="align-items: stretch;">
+                    <div class="grid-card highlight-card">
+                        <div class="card-icon">🎯</div>
+                        <h3 style="font-size: 22px;">① 예측이 출발점</h3>
+                        <p>MAPE 22%→4% 평활화가 채찍효과 증폭을 첫 단계에서 차단. 모든 린 기법은 안정적 예측을 전제로 한다.</p>
+                    </div>
+                    <div class="grid-card tech-highlight-card">
+                        <div class="card-icon">🔗</div>
+                        <h3 style="font-size: 22px;">② 기법은 사슬로</h3>
+                        <p>SMED→EOQ→칸반→재고가 하나의 인과 사슬. 어느 한 기법도 혼자 서지 못한다.</p>
+                    </div>
+                    <div class="grid-card gold-highlight-card">
+                        <div class="card-icon">⚡</div>
+                        <h3 style="font-size: 22px;">③ 디지털이 trade-off를 풀다</h3>
+                        <p>Kinaxis 동시 계획으로 효율과 회복력을 동시에. 정보의 잉여가 재고의 잉여를 대체.</p>
+                    </div>
+                    <div class="grid-card highlight-card">
+                        <div class="card-icon">🌱</div>
+                        <h3 style="font-size: 22px;">④ ESG는 더 이상 부수효과 아님</h3>
+                        <p>Zero Carbon Project로 협력사 -56%. ESG가 가트너 평가의 단독 20%인 시대.</p>
+                    </div>
+                    <div class="grid-card tech-highlight-card">
+                        <div class="card-icon">🏭</div>
+                        <h3 style="font-size: 22px;">⑤ 자기 공급망 = 영업 자산</h3>
+                        <p>EcoStruxure를 자사에 먼저 깔고 검증한 뒤 고객에게 판매. 운영이 곧 레퍼런스.</p>
+                    </div>
+                    <div class="grid-card" style="border-left: 5px solid #FFB800; padding: 28px;">
+                        <div class="card-icon">⚠️</div>
+                        <h3 style="font-size: 22px;">+ 경계할 점</h3>
+                        <p>린이 깊을수록 외부 공급 충격에 약함. 핵심 외주 부품 다중 소싱이 필수 보완책.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="slide-counter">29 / 30</div>
+        </section>
+        <!-- ========== SLIDE 29 END ========== -->
+
+        <!-- ========== SLIDE 30 START ========== -->
+        <section class="slide active-slide" id="slide-30">
+            <div class="content-wrapper centered">
+                <h2 class="section-title" style="font-size: 44px; margin-bottom: 24px;">운영관리 이론이 하나의 체계로 작동할 때</h2>
+                <p class="editorial-quote" style="font-size: 30px; max-width: 1100px; margin: 0 auto 40px;">
+                    슈나이더 일렉트릭은 <span>이론과 실무의 거리가 가장 좁은 기업</span>이면서,<br>
+                    그 이론을 <span>디지털과 지속가능성</span>으로 한 걸음 더 넓힌 기업입니다.
+                </p>
+                <div class="grid-card highlight-card" style="max-width: 900px; margin: 0 auto; text-align: left; padding: 36px;">
+                    <ul class="compact-list" style="gap: 16px;">
+                        <li><strong>예측 정확도 MAPE 4%</strong> → 채찍효과 억제의 출발점</li>
+                        <li><strong>재고 -78%, SMED -77%</strong> → EOQ·칸반·린이 하나의 사슬</li>
+                        <li><strong>Kinaxis 동시 계획</strong> → 순차 S&amp;OP를 넘어선 동기화</li>
+                        <li><strong>Zero Carbon -56%</strong> → ESG가 운영 우수성의 일부</li>
+                        <li><strong>효율 + 회복력 + 지속가능성</strong> → 3년 연속 세계 1위의 공식</li>
+                    </ul>
+                </div>
+                <p class="subtitle" style="margin-top: 50px; margin-bottom: 0; font-size: 28px;">경청해 주셔서 감사합니다.</p>
+            </div>
+            <div class="slide-counter">30 / 30</div>
+        </section>
+        <!-- ========== SLIDE 30 END ========== -->
+
+    </main>
+
+    <script src="three_scene.js"></script>
+    <script src="script.js"></script>
+
+</body></html>
